@@ -23,7 +23,7 @@ No hay build, lint ni tests por línea de comandos. Se abre el `.4DProject` en 4
 
 Repositorio en GitHub, rama principal `main`. Se usa para abrir el proyecto en otros equipos.
 - **Cada commit lleva el nombre del equipo**: el hook `.githooks/prepare-commit-msg` agrega `Equipo: <COMPUTERNAME>` al final del mensaje. Se activa una vez por equipo, después de clonar: `git config core.hooksPath .githooks`.
-- No se suben (`.gitignore`): `Data/`, `Project/DerivedData/`, `Logs/`, `userPreferences.*/` y `Temporal/`. En otro equipo, 4D pide crear un archivo de datos nuevo y `Seg_Bootstrap` inicializa la base.
+- No se suben (`.gitignore`): `Data/`, `Project/DerivedData/`, `Logs/`, `userPreferences.*/`. `Temporal/` sí se sube. En otro equipo, 4D pide crear un archivo de datos nuevo y `Seg_Bootstrap` inicializa la base.
 - `.gitattributes` con `* -text`: git no cambia los finales de línea de los fuentes de 4D.
 
 ## Modelo de datos (resumen)

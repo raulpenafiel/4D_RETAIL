@@ -8,8 +8,5 @@ userPreferences.*/
 *.Match
 *.journal
 
-# Archivos locales de análisis (capturas, referencias)
-Temporal/
-
 # Configuración local de Claude Code
 .claude/settings.local.json
