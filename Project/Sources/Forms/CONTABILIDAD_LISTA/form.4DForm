@@ -1,0 +1,164 @@
+{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"windowSizingX": "fixed",
+	"windowSizingY": "fixed",
+	"windowTitle": "Asientos contables",
+	"events": [
+		"onLoad"
+	],
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"titulo": {
+					"type": "text",
+					"text": "Asientos contables",
+					"left": 10,
+					"top": 8,
+					"width": 400,
+					"height": 26,
+					"fontWeight": "bold",
+					"fontSize": 16
+				},
+				"lblBus": {
+					"type": "text",
+					"text": "Concepto:",
+					"left": 540,
+					"top": 14,
+					"width": 80,
+					"height": 20
+				},
+				"iBuscar": {
+					"type": "input",
+					"dataSource": "Form.texto",
+					"dataSourceTypeHint": "text",
+					"left": 625,
+					"top": 12,
+					"width": 265,
+					"height": 22,
+					"enterable": true,
+					"events": [
+						"onDataChange"
+					],
+					"method": "ObjectMethods/iBuscar.4dm"
+				},
+				"lb": {
+					"type": "listbox",
+					"left": 10,
+					"top": 50,
+					"width": 880,
+					"height": 450,
+					"dataSource": "Form.lista",
+					"listboxType": "collection",
+					"currentItemSource": "Form.actual",
+					"selectionMode": "single",
+					"events": [
+						"onDoubleClick"
+					],
+					"columns": [
+						{
+							"name": "c0",
+							"dataSource": "This.Numero",
+							"width": 70,
+							"header": {
+								"name": "hc0",
+								"text": "Nº"
+							}
+						},
+						{
+							"name": "c1",
+							"dataSource": "This.Fecha",
+							"width": 100,
+							"header": {
+								"name": "hc1",
+								"text": "Fecha"
+							}
+						},
+						{
+							"name": "c2",
+							"dataSource": "This.Concepto",
+							"width": 420,
+							"header": {
+								"name": "hc2",
+								"text": "Concepto"
+							}
+						},
+						{
+							"name": "c3",
+							"dataSource": "This.Origen",
+							"width": 150,
+							"header": {
+								"name": "hc3",
+								"text": "Origen"
+							}
+						},
+						{
+							"name": "c4",
+							"dataSource": "This.Estado",
+							"width": 110,
+							"header": {
+								"name": "hc4",
+								"text": "Estado"
+							}
+						}
+					],
+					"method": "ObjectMethods/lb.4dm"
+				},
+				"bNuevo": {
+					"type": "button",
+					"text": "Nuevo",
+					"left": 10,
+					"top": 515,
+					"width": 100,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bNuevo.4dm"
+				},
+				"bVer": {
+					"type": "button",
+					"text": "Ver",
+					"left": 120,
+					"top": 515,
+					"width": 100,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bVer.4dm"
+				},
+				"bAnular": {
+					"type": "button",
+					"text": "Anular",
+					"left": 230,
+					"top": 515,
+					"width": 100,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bAnular.4dm"
+				},
+				"bCerrar": {
+					"type": "button",
+					"text": "Cerrar",
+					"left": 790,
+					"top": 515,
+					"width": 100,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"action": "cancel"
+				}
+			}
+		}
+	],
+	"method": "method.4dm"
+}

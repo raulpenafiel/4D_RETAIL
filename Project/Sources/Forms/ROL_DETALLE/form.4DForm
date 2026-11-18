@@ -1,0 +1,163 @@
+{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"windowSizingX": "fixed",
+	"windowSizingY": "fixed",
+	"windowTitle": "Roles",
+	"events": [
+		"onLoad"
+	],
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"titulo": {
+					"type": "text",
+					"text": "Roles - registro",
+					"left": 20,
+					"top": 8,
+					"width": 400,
+					"height": 26,
+					"fontWeight": "bold",
+					"fontSize": 16
+				},
+				"l_Nombre": {
+					"type": "text",
+					"text": "Nombre del rol",
+					"left": 20,
+					"top": 52,
+					"width": 190,
+					"height": 20
+				},
+				"i_Nombre": {
+					"type": "input",
+					"dataSource": "Form.entidad.Nombre",
+					"dataSourceTypeHint": "text",
+					"left": 215,
+					"top": 50,
+					"width": 250,
+					"height": 22,
+					"enterable": true
+				},
+				"c_Activo": {
+					"type": "checkbox",
+					"text": "Activo",
+					"dataSource": "Form.entidad.Activo",
+					"left": 480,
+					"top": 50,
+					"width": 120,
+					"height": 22
+				},
+				"l_Accesos": {
+					"type": "text",
+					"text": "Accesos por módulo",
+					"left": 20,
+					"top": 88,
+					"width": 300,
+					"height": 20,
+					"fontWeight": "bold"
+				},
+				"lbAccesos": {
+					"type": "listbox",
+					"left": 20,
+					"top": 112,
+					"width": 560,
+					"height": 380,
+					"dataSource": "Form.accesos",
+					"listboxType": "collection",
+					"currentItemSource": "Form.accesoActual",
+					"selectionMode": "single",
+					"events": [],
+					"columns": [
+						{
+							"name": "k0",
+							"dataSource": "This.nombre",
+							"width": 230,
+							"header": {
+								"name": "hk0",
+								"text": "Módulo"
+							}
+						},
+						{
+							"name": "k1",
+							"dataSource": "This.leer",
+							"width": 80,
+							"dataSourceTypeHint": "boolean",
+							"controlType": "checkbox",
+							"enterable": true,
+							"header": {
+								"name": "hk1",
+								"text": "Ver"
+							}
+						},
+						{
+							"name": "k2",
+							"dataSource": "This.crear",
+							"width": 80,
+							"dataSourceTypeHint": "boolean",
+							"controlType": "checkbox",
+							"enterable": true,
+							"header": {
+								"name": "hk2",
+								"text": "Crear"
+							}
+						},
+						{
+							"name": "k3",
+							"dataSource": "This.editar",
+							"width": 80,
+							"dataSourceTypeHint": "boolean",
+							"controlType": "checkbox",
+							"enterable": true,
+							"header": {
+								"name": "hk3",
+								"text": "Editar"
+							}
+						},
+						{
+							"name": "k4",
+							"dataSource": "This.anular",
+							"width": 80,
+							"dataSourceTypeHint": "boolean",
+							"controlType": "checkbox",
+							"enterable": true,
+							"header": {
+								"name": "hk4",
+								"text": "Anular"
+							}
+						}
+					]
+				},
+				"bGuardar": {
+					"type": "button",
+					"text": "Guardar",
+					"left": 370,
+					"top": 505,
+					"width": 100,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bGuardar.4dm"
+				},
+				"bCancelar": {
+					"type": "button",
+					"text": "Cancelar",
+					"left": 480,
+					"top": 505,
+					"width": 100,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"action": "cancel"
+				}
+			}
+		}
+	],
+	"method": "method.4dm"
+}

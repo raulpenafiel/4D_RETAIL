@@ -1,0 +1,164 @@
+{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"windowSizingX": "fixed",
+	"windowSizingY": "fixed",
+	"windowTitle": "Empresa",
+	"events": [
+		"onLoad"
+	],
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"titulo": {
+					"type": "text",
+					"text": "Empresa",
+					"left": 10,
+					"top": 8,
+					"width": 400,
+					"height": 26,
+					"fontWeight": "bold",
+					"fontSize": 16
+				},
+				"lblBus": {
+					"type": "text",
+					"text": "Buscar:",
+					"left": 540,
+					"top": 14,
+					"width": 80,
+					"height": 20
+				},
+				"iBuscar": {
+					"type": "input",
+					"dataSource": "Form.texto",
+					"dataSourceTypeHint": "text",
+					"left": 625,
+					"top": 12,
+					"width": 265,
+					"height": 22,
+					"enterable": true,
+					"events": [
+						"onDataChange"
+					],
+					"method": "ObjectMethods/iBuscar.4dm"
+				},
+				"lb": {
+					"type": "listbox",
+					"left": 10,
+					"top": 50,
+					"width": 880,
+					"height": 450,
+					"dataSource": "Form.lista",
+					"listboxType": "collection",
+					"currentItemSource": "Form.actual",
+					"selectionMode": "single",
+					"events": [
+						"onDoubleClick"
+					],
+					"columns": [
+						{
+							"name": "c0",
+							"dataSource": "This.EmpresaID",
+							"width": 80,
+							"header": {
+								"name": "hc0",
+								"text": "Código"
+							}
+						},
+						{
+							"name": "c1",
+							"dataSource": "This.RUC",
+							"width": 130,
+							"header": {
+								"name": "hc1",
+								"text": "RUC"
+							}
+						},
+						{
+							"name": "c2",
+							"dataSource": "This.RazonSocial",
+							"width": 330,
+							"header": {
+								"name": "hc2",
+								"text": "Razón social"
+							}
+						},
+						{
+							"name": "c3",
+							"dataSource": "This.Dominio",
+							"width": 180,
+							"header": {
+								"name": "hc3",
+								"text": "Dominio"
+							}
+						},
+						{
+							"name": "c4",
+							"dataSource": "This.Activo",
+							"width": 60,
+							"header": {
+								"name": "hc4",
+								"text": "Activo"
+							}
+						}
+					],
+					"method": "ObjectMethods/lb.4dm"
+				},
+				"bNuevo": {
+					"type": "button",
+					"text": "Nuevo",
+					"left": 10,
+					"top": 515,
+					"width": 100,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bNuevo.4dm"
+				},
+				"bEditar": {
+					"type": "button",
+					"text": "Editar",
+					"left": 120,
+					"top": 515,
+					"width": 100,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bEditar.4dm"
+				},
+				"bEstado": {
+					"type": "button",
+					"text": "Activar/Desactivar",
+					"left": 230,
+					"top": 515,
+					"width": 150,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bEstado.4dm"
+				},
+				"bCerrar": {
+					"type": "button",
+					"text": "Cerrar",
+					"left": 790,
+					"top": 515,
+					"width": 100,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"action": "cancel"
+				}
+			}
+		}
+	],
+	"method": "method.4dm"
+}

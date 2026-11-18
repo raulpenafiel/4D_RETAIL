@@ -1,0 +1,398 @@
+{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"windowSizingX": "fixed",
+	"windowSizingY": "fixed",
+	"windowTitle": "Compra",
+	"events": [
+		"onLoad"
+	],
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"titulo": {
+					"type": "text",
+					"text": "Compra",
+					"left": 10,
+					"top": 8,
+					"width": 300,
+					"height": 26,
+					"fontWeight": "bold",
+					"fontSize": 16
+				},
+				"lNumero": {
+					"type": "text",
+					"text": "Nº factura:",
+					"left": 320,
+					"top": 12,
+					"width": 80,
+					"height": 20
+				},
+				"iNumero": {
+					"type": "input",
+					"dataSource": "Form.numero",
+					"dataSourceTypeHint": "text",
+					"left": 405,
+					"top": 10,
+					"width": 200,
+					"height": 22,
+					"enterable": true
+				},
+				"lFecha": {
+					"type": "text",
+					"text": "Fecha:",
+					"left": 700,
+					"top": 12,
+					"width": 50,
+					"height": 20
+				},
+				"iFecha": {
+					"type": "input",
+					"dataSource": "Form.fecha",
+					"dataSourceTypeHint": "date",
+					"left": 755,
+					"top": 10,
+					"width": 130,
+					"height": 22,
+					"enterable": true
+				},
+				"lTer": {
+					"type": "text",
+					"text": "Proveedor (identificación):",
+					"left": 10,
+					"top": 52,
+					"width": 170,
+					"height": 20
+				},
+				"iTerIdent": {
+					"type": "input",
+					"dataSource": "Form.terIdent",
+					"dataSourceTypeHint": "text",
+					"left": 185,
+					"top": 50,
+					"width": 150,
+					"height": 22,
+					"enterable": true,
+					"events": [
+						"onDataChange"
+					],
+					"method": "ObjectMethods/iTerIdent.4dm"
+				},
+				"bBuscar": {
+					"type": "button",
+					"text": "Buscar",
+					"left": 345,
+					"top": 48,
+					"width": 80,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bBuscar.4dm"
+				},
+				"lTerN": {
+					"type": "text",
+					"text": "Nombre:",
+					"left": 10,
+					"top": 84,
+					"width": 170,
+					"height": 20
+				},
+				"iTerNombre": {
+					"type": "input",
+					"dataSource": "Form.terNombre",
+					"dataSourceTypeHint": "text",
+					"left": 185,
+					"top": 82,
+					"width": 390,
+					"height": 22,
+					"enterable": false
+				},
+				"lPago": {
+					"type": "text",
+					"text": "Forma de pago:",
+					"left": 610,
+					"top": 52,
+					"width": 100,
+					"height": 20
+				},
+				"bFormaPago": {
+					"type": "button",
+					"text": "Elegir...",
+					"left": 610,
+					"top": 80,
+					"width": 90,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bFormaPago.4dm"
+				},
+				"iPago": {
+					"type": "input",
+					"dataSource": "Form.formaPago",
+					"dataSourceTypeHint": "text",
+					"left": 705,
+					"top": 82,
+					"width": 180,
+					"height": 22,
+					"enterable": false
+				},
+				"lCod": {
+					"type": "text",
+					"text": "Código / barras:",
+					"left": 10,
+					"top": 120,
+					"width": 170,
+					"height": 20
+				},
+				"iCodigo": {
+					"type": "input",
+					"dataSource": "Form.codigo",
+					"dataSourceTypeHint": "text",
+					"left": 185,
+					"top": 118,
+					"width": 200,
+					"height": 22,
+					"enterable": true,
+					"events": [
+						"onDataChange"
+					],
+					"method": "ObjectMethods/iCodigo.4dm"
+				},
+				"bAgregar": {
+					"type": "button",
+					"text": "Agregar",
+					"left": 395,
+					"top": 116,
+					"width": 90,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bAgregar.4dm"
+				},
+				"lbLineas": {
+					"type": "listbox",
+					"left": 10,
+					"top": 152,
+					"width": 875,
+					"height": 300,
+					"dataSource": "Form.lineas",
+					"listboxType": "collection",
+					"currentItemSource": "Form.lineaActual",
+					"selectionMode": "single",
+					"events": [
+						"onDataChange"
+					],
+					"columns": [
+						{
+							"name": "k0",
+							"dataSource": "This.codigo",
+							"width": 110,
+							"header": {
+								"name": "hk0",
+								"text": "Código"
+							}
+						},
+						{
+							"name": "k1",
+							"dataSource": "This.nombre",
+							"width": 330,
+							"header": {
+								"name": "hk1",
+								"text": "Producto"
+							}
+						},
+						{
+							"name": "k2",
+							"dataSource": "This.cantidad",
+							"width": 80,
+							"dataSourceTypeHint": "number",
+							"enterable": true,
+							"header": {
+								"name": "hk2",
+								"text": "Cantidad"
+							}
+						},
+						{
+							"name": "k3",
+							"dataSource": "This.precio",
+							"width": 90,
+							"dataSourceTypeHint": "number",
+							"enterable": true,
+							"header": {
+								"name": "hk3",
+								"text": "Costo"
+							}
+						},
+						{
+							"name": "k4",
+							"dataSource": "This.descuento",
+							"width": 80,
+							"dataSourceTypeHint": "number",
+							"enterable": true,
+							"header": {
+								"name": "hk4",
+								"text": "Desc."
+							}
+						},
+						{
+							"name": "k5",
+							"dataSource": "This.iva",
+							"width": 60,
+							"dataSourceTypeHint": "number",
+							"header": {
+								"name": "hk5",
+								"text": "IVA %"
+							}
+						},
+						{
+							"name": "k6",
+							"dataSource": "This.total",
+							"width": 100,
+							"dataSourceTypeHint": "number",
+							"header": {
+								"name": "hk6",
+								"text": "Total"
+							}
+						}
+					],
+					"method": "ObjectMethods/lbLineas.4dm"
+				},
+				"lObs": {
+					"type": "text",
+					"text": "Observación:",
+					"left": 10,
+					"top": 468,
+					"width": 100,
+					"height": 20
+				},
+				"iObs": {
+					"type": "input",
+					"dataSource": "Form.observacion",
+					"dataSourceTypeHint": "text",
+					"left": 115,
+					"top": 466,
+					"width": 420,
+					"height": 22,
+					"enterable": true
+				},
+				"lt_subtotal": {
+					"type": "text",
+					"text": "Subtotal:",
+					"left": 640,
+					"top": 462,
+					"width": 90,
+					"height": 20
+				},
+				"it_subtotal": {
+					"type": "input",
+					"dataSource": "Form.subtotal",
+					"dataSourceTypeHint": "number",
+					"left": 735,
+					"top": 460,
+					"width": 150,
+					"height": 22,
+					"enterable": false
+				},
+				"lt_descuento": {
+					"type": "text",
+					"text": "Descuento:",
+					"left": 640,
+					"top": 488,
+					"width": 90,
+					"height": 20
+				},
+				"it_descuento": {
+					"type": "input",
+					"dataSource": "Form.descuento",
+					"dataSourceTypeHint": "number",
+					"left": 735,
+					"top": 486,
+					"width": 150,
+					"height": 22,
+					"enterable": false
+				},
+				"lt_iva": {
+					"type": "text",
+					"text": "IVA:",
+					"left": 640,
+					"top": 514,
+					"width": 90,
+					"height": 20
+				},
+				"it_iva": {
+					"type": "input",
+					"dataSource": "Form.iva",
+					"dataSourceTypeHint": "number",
+					"left": 735,
+					"top": 512,
+					"width": 150,
+					"height": 22,
+					"enterable": false
+				},
+				"lt_total": {
+					"type": "text",
+					"text": "TOTAL:",
+					"left": 640,
+					"top": 540,
+					"width": 90,
+					"height": 20
+				},
+				"it_total": {
+					"type": "input",
+					"dataSource": "Form.total",
+					"dataSourceTypeHint": "number",
+					"left": 735,
+					"top": 538,
+					"width": 150,
+					"height": 22,
+					"enterable": false
+				},
+				"bQuitar": {
+					"type": "button",
+					"text": "Quitar línea",
+					"left": 10,
+					"top": 540,
+					"width": 110,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bQuitar.4dm"
+				},
+				"bRegistrar": {
+					"type": "button",
+					"text": "Registrar compra",
+					"left": 130,
+					"top": 540,
+					"width": 140,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bRegistrar.4dm"
+				},
+				"bCerrar": {
+					"type": "button",
+					"text": "Cerrar",
+					"left": 280,
+					"top": 540,
+					"width": 100,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"action": "cancel"
+				}
+			}
+		}
+	],
+	"method": "method.4dm"
+}

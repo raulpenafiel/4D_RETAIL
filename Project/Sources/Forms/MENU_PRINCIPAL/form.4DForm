@@ -1,0 +1,255 @@
+{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"windowSizingX": "fixed",
+	"windowSizingY": "fixed",
+	"windowTitle": "Retail - Menú principal",
+	"events": [
+		"onLoad"
+	],
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"titulo": {
+					"type": "text",
+					"text": "RETAIL",
+					"left": 30,
+					"top": 20,
+					"width": 400,
+					"height": 26,
+					"fontWeight": "bold",
+					"fontSize": 16
+				},
+				"lblEmp": {
+					"type": "input",
+					"dataSource": "Form.cabecera",
+					"dataSourceTypeHint": "text",
+					"left": 30,
+					"top": 55,
+					"width": 790,
+					"height": 22,
+					"enterable": false
+				},
+				"g0": {
+					"type": "text",
+					"text": "Inventarios",
+					"left": 30,
+					"top": 115,
+					"width": 110,
+					"height": 20,
+					"fontWeight": "bold"
+				},
+				"bINVENTARIO": {
+					"type": "button",
+					"text": "Productos",
+					"left": 150,
+					"top": 100,
+					"width": 160,
+					"height": 50,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bINVENTARIO.4dm"
+				},
+				"bAJUSTE": {
+					"type": "button",
+					"text": "Ajustes",
+					"left": 320,
+					"top": 100,
+					"width": 160,
+					"height": 50,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bAJUSTE.4dm"
+				},
+				"bKARDEX": {
+					"type": "button",
+					"text": "Kardex",
+					"left": 490,
+					"top": 100,
+					"width": 160,
+					"height": 50,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bKARDEX.4dm"
+				},
+				"g1": {
+					"type": "text",
+					"text": "Clientes",
+					"left": 30,
+					"top": 185,
+					"width": 110,
+					"height": 20,
+					"fontWeight": "bold"
+				},
+				"bCLIENTE": {
+					"type": "button",
+					"text": "Clientes",
+					"left": 150,
+					"top": 170,
+					"width": 160,
+					"height": 50,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bCLIENTE.4dm"
+				},
+				"bFACTURA": {
+					"type": "button",
+					"text": "Facturación",
+					"left": 320,
+					"top": 170,
+					"width": 160,
+					"height": 50,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bFACTURA.4dm"
+				},
+				"g2": {
+					"type": "text",
+					"text": "Proveedores",
+					"left": 30,
+					"top": 255,
+					"width": 110,
+					"height": 20,
+					"fontWeight": "bold"
+				},
+				"bPROVEEDOR": {
+					"type": "button",
+					"text": "Proveedores",
+					"left": 150,
+					"top": 240,
+					"width": 160,
+					"height": 50,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bPROVEEDOR.4dm"
+				},
+				"bCOMPRA": {
+					"type": "button",
+					"text": "Compras",
+					"left": 320,
+					"top": 240,
+					"width": 160,
+					"height": 50,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bCOMPRA.4dm"
+				},
+				"g3": {
+					"type": "text",
+					"text": "Contabilidad",
+					"left": 30,
+					"top": 325,
+					"width": 110,
+					"height": 20,
+					"fontWeight": "bold"
+				},
+				"bCONTABILIDAD": {
+					"type": "button",
+					"text": "Asientos",
+					"left": 150,
+					"top": 310,
+					"width": 160,
+					"height": 50,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bCONTABILIDAD.4dm"
+				},
+				"bBANCO": {
+					"type": "button",
+					"text": "Bancos",
+					"left": 320,
+					"top": 310,
+					"width": 160,
+					"height": 50,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bBANCO.4dm"
+				},
+				"g4": {
+					"type": "text",
+					"text": "Administración",
+					"left": 30,
+					"top": 395,
+					"width": 110,
+					"height": 20,
+					"fontWeight": "bold"
+				},
+				"bEMPRESA": {
+					"type": "button",
+					"text": "Empresa",
+					"left": 150,
+					"top": 380,
+					"width": 160,
+					"height": 50,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bEMPRESA.4dm"
+				},
+				"bSUCURSAL": {
+					"type": "button",
+					"text": "Sucursales",
+					"left": 320,
+					"top": 380,
+					"width": 160,
+					"height": 50,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bSUCURSAL.4dm"
+				},
+				"bROL": {
+					"type": "button",
+					"text": "Roles",
+					"left": 490,
+					"top": 380,
+					"width": 160,
+					"height": 50,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bROL.4dm"
+				},
+				"bUSUARIO": {
+					"type": "button",
+					"text": "Usuarios",
+					"left": 660,
+					"top": 380,
+					"width": 160,
+					"height": 50,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bUSUARIO.4dm"
+				},
+				"bSalir": {
+					"type": "button",
+					"text": "Salir",
+					"left": 710,
+					"top": 470,
+					"width": 110,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bSalir.4dm"
+				}
+			}
+		}
+	],
+	"method": "method.4dm"
+}

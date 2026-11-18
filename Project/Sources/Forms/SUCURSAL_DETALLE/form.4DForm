@@ -1,0 +1,191 @@
+{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"windowSizingX": "fixed",
+	"windowSizingY": "fixed",
+	"windowTitle": "Sucursales",
+	"events": [
+		"onLoad"
+	],
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"titulo": {
+					"type": "text",
+					"text": "Sucursales - registro",
+					"left": 20,
+					"top": 8,
+					"width": 400,
+					"height": 26,
+					"fontWeight": "bold",
+					"fontSize": 16
+				},
+				"l_Codigo": {
+					"type": "text",
+					"text": "Código",
+					"left": 20,
+					"top": 52,
+					"width": 190,
+					"height": 20
+				},
+				"i_Codigo": {
+					"type": "input",
+					"dataSource": "Form.entidad.Codigo",
+					"dataSourceTypeHint": "text",
+					"left": 215,
+					"top": 50,
+					"width": 150,
+					"height": 22,
+					"enterable": true
+				},
+				"l_Nombre": {
+					"type": "text",
+					"text": "Nombre",
+					"left": 20,
+					"top": 86,
+					"width": 190,
+					"height": 20
+				},
+				"i_Nombre": {
+					"type": "input",
+					"dataSource": "Form.entidad.Nombre",
+					"dataSourceTypeHint": "text",
+					"left": 215,
+					"top": 84,
+					"width": 340,
+					"height": 22,
+					"enterable": true
+				},
+				"l_Direccion": {
+					"type": "text",
+					"text": "Dirección",
+					"left": 20,
+					"top": 120,
+					"width": 190,
+					"height": 20
+				},
+				"i_Direccion": {
+					"type": "input",
+					"dataSource": "Form.entidad.Direccion",
+					"dataSourceTypeHint": "text",
+					"left": 215,
+					"top": 118,
+					"width": 340,
+					"height": 22,
+					"enterable": true
+				},
+				"l_Telefono": {
+					"type": "text",
+					"text": "Teléfono",
+					"left": 20,
+					"top": 154,
+					"width": 190,
+					"height": 20
+				},
+				"i_Telefono": {
+					"type": "input",
+					"dataSource": "Form.entidad.Telefono",
+					"dataSourceTypeHint": "text",
+					"left": 215,
+					"top": 152,
+					"width": 200,
+					"height": 22,
+					"enterable": true
+				},
+				"l_Establecimiento": {
+					"type": "text",
+					"text": "Establecimiento (3 díg.)",
+					"left": 20,
+					"top": 188,
+					"width": 190,
+					"height": 20
+				},
+				"i_Establecimiento": {
+					"type": "input",
+					"dataSource": "Form.entidad.Establecimiento",
+					"dataSourceTypeHint": "text",
+					"left": 215,
+					"top": 186,
+					"width": 60,
+					"height": 22,
+					"enterable": true
+				},
+				"l_PuntoEmision": {
+					"type": "text",
+					"text": "Punto de emisión (3 díg.)",
+					"left": 20,
+					"top": 222,
+					"width": 190,
+					"height": 20
+				},
+				"i_PuntoEmision": {
+					"type": "input",
+					"dataSource": "Form.entidad.PuntoEmision",
+					"dataSourceTypeHint": "text",
+					"left": 215,
+					"top": 220,
+					"width": 60,
+					"height": 22,
+					"enterable": true
+				},
+				"l_SecuencialFactura": {
+					"type": "text",
+					"text": "Último secuencial",
+					"left": 20,
+					"top": 256,
+					"width": 190,
+					"height": 20
+				},
+				"i_SecuencialFactura": {
+					"type": "input",
+					"dataSource": "Form.entidad.SecuencialFactura",
+					"dataSourceTypeHint": "number",
+					"left": 215,
+					"top": 254,
+					"width": 150,
+					"height": 22,
+					"enterable": true
+				},
+				"c_Activo": {
+					"type": "checkbox",
+					"text": "Activo",
+					"dataSource": "Form.entidad.Activo",
+					"left": 215,
+					"top": 288,
+					"width": 120,
+					"height": 22
+				},
+				"bGuardar": {
+					"type": "button",
+					"text": "Guardar",
+					"left": 330,
+					"top": 342,
+					"width": 100,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bGuardar.4dm"
+				},
+				"bCancelar": {
+					"type": "button",
+					"text": "Cancelar",
+					"left": 440,
+					"top": 342,
+					"width": 100,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"action": "cancel"
+				}
+			}
+		}
+	],
+	"method": "method.4dm"
+}

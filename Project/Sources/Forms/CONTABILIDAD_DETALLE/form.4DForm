@@ -1,0 +1,239 @@
+{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"windowSizingX": "fixed",
+	"windowSizingY": "fixed",
+	"windowTitle": "Asiento contable",
+	"events": [
+		"onLoad"
+	],
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"titulo": {
+					"type": "text",
+					"text": "Asiento contable",
+					"left": 10,
+					"top": 8,
+					"width": 300,
+					"height": 26,
+					"fontWeight": "bold",
+					"fontSize": 16
+				},
+				"iNumero": {
+					"type": "input",
+					"dataSource": "Form.numero",
+					"dataSourceTypeHint": "text",
+					"left": 320,
+					"top": 10,
+					"width": 350,
+					"height": 22,
+					"enterable": false
+				},
+				"lFecha": {
+					"type": "text",
+					"text": "Fecha:",
+					"left": 700,
+					"top": 12,
+					"width": 50,
+					"height": 20
+				},
+				"iFecha": {
+					"type": "input",
+					"dataSource": "Form.fecha",
+					"dataSourceTypeHint": "date",
+					"left": 755,
+					"top": 10,
+					"width": 130,
+					"height": 22,
+					"enterable": true
+				},
+				"lConcepto": {
+					"type": "text",
+					"text": "Concepto:",
+					"left": 10,
+					"top": 52,
+					"width": 170,
+					"height": 20
+				},
+				"iConcepto": {
+					"type": "input",
+					"dataSource": "Form.concepto",
+					"dataSourceTypeHint": "text",
+					"left": 185,
+					"top": 50,
+					"width": 700,
+					"height": 22,
+					"enterable": true
+				},
+				"lbLineas": {
+					"type": "listbox",
+					"left": 10,
+					"top": 90,
+					"width": 875,
+					"height": 340,
+					"dataSource": "Form.lineas",
+					"listboxType": "collection",
+					"currentItemSource": "Form.lineaActual",
+					"selectionMode": "single",
+					"events": [
+						"onDataChange"
+					],
+					"columns": [
+						{
+							"name": "k0",
+							"dataSource": "This.cuenta",
+							"width": 140,
+							"enterable": true,
+							"header": {
+								"name": "hk0",
+								"text": "Cuenta"
+							}
+						},
+						{
+							"name": "k1",
+							"dataSource": "This.referencia",
+							"width": 395,
+							"enterable": true,
+							"header": {
+								"name": "hk1",
+								"text": "Referencia"
+							}
+						},
+						{
+							"name": "k2",
+							"dataSource": "This.debito",
+							"width": 160,
+							"dataSourceTypeHint": "number",
+							"enterable": true,
+							"header": {
+								"name": "hk2",
+								"text": "Debe"
+							}
+						},
+						{
+							"name": "k3",
+							"dataSource": "This.credito",
+							"width": 160,
+							"dataSourceTypeHint": "number",
+							"enterable": true,
+							"header": {
+								"name": "hk3",
+								"text": "Haber"
+							}
+						}
+					],
+					"method": "ObjectMethods/lbLineas.4dm"
+				},
+				"bAgregarLinea": {
+					"type": "button",
+					"text": "Agregar línea",
+					"left": 10,
+					"top": 445,
+					"width": 120,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bAgregarLinea.4dm"
+				},
+				"bQuitar": {
+					"type": "button",
+					"text": "Quitar línea",
+					"left": 140,
+					"top": 445,
+					"width": 110,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bQuitar.4dm"
+				},
+				"lDeb": {
+					"type": "text",
+					"text": "Total debe:",
+					"left": 600,
+					"top": 447,
+					"width": 120,
+					"height": 20
+				},
+				"iTotDeb": {
+					"type": "input",
+					"dataSource": "Form.totDebito",
+					"dataSourceTypeHint": "number",
+					"left": 735,
+					"top": 445,
+					"width": 150,
+					"height": 22,
+					"enterable": false
+				},
+				"lCre": {
+					"type": "text",
+					"text": "Total haber:",
+					"left": 600,
+					"top": 473,
+					"width": 120,
+					"height": 20
+				},
+				"iTotCre": {
+					"type": "input",
+					"dataSource": "Form.totCredito",
+					"dataSourceTypeHint": "number",
+					"left": 735,
+					"top": 471,
+					"width": 150,
+					"height": 22,
+					"enterable": false
+				},
+				"lDif": {
+					"type": "text",
+					"text": "Diferencia:",
+					"left": 600,
+					"top": 499,
+					"width": 120,
+					"height": 20
+				},
+				"iDif": {
+					"type": "input",
+					"dataSource": "Form.diferencia",
+					"dataSourceTypeHint": "number",
+					"left": 735,
+					"top": 497,
+					"width": 150,
+					"height": 22,
+					"enterable": false
+				},
+				"bRegistrar": {
+					"type": "button",
+					"text": "Registrar asiento",
+					"left": 10,
+					"top": 530,
+					"width": 150,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bRegistrar.4dm"
+				},
+				"bCerrar": {
+					"type": "button",
+					"text": "Cerrar",
+					"left": 170,
+					"top": 530,
+					"width": 100,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"action": "cancel"
+				}
+			}
+		}
+	],
+	"method": "method.4dm"
+}

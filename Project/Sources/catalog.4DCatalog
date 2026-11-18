@@ -1,0 +1,1273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
+<base name="4D_RETAIL" uuid="33D4773E2E4640CE9E9620160A5C6CBD" collation_locale="es-es">
+	<schema name="DEFAULT_SCHEMA"/>
+	<table name="Empresas" uuid="F0AD2D32DF9A47CB97AFC0C728FED746" id="1">
+		<field name="EmpresaID" uuid="A786753C4CD840169AFD043AC061A1B7" type="10" limiting_length="5" unique="true" not_null="true" id="1"/>
+		<field name="RUC" uuid="72AAB9DD1E44448AA26EFD2F068B0E31" type="10" limiting_length="13" id="2"/>
+		<field name="RazonSocial" uuid="A42E397EF66244C88A47BB06C446DF8D" type="10" limiting_length="150" id="3"/>
+		<field name="NombreComercial" uuid="26F0235A2FFA4E938ABF400870AB5275" type="10" limiting_length="150" id="4"/>
+		<field name="Direccion" uuid="E9C6AD0455594AD182DF568DB0E66AAB" type="10" limiting_length="200" id="5"/>
+		<field name="Telefono" uuid="68BFD6439C8F424E951E83AB620103AA" type="10" limiting_length="30" id="6"/>
+		<field name="Email" uuid="BF8C43FF70BD478A90DD121035735330" type="10" limiting_length="100" id="7"/>
+		<field name="Dominio" uuid="82B43ACE875C4B5AB6BE422220A18AAC" type="10" limiting_length="100" id="8"/>
+		<field name="SecuencialAsiento" uuid="8DC3FA94D553486391D6DDD1E80BE4CC" type="4" id="9"/>
+		<field name="CtaCaja" uuid="5F0A09A85CE948E0BAF5B9732085FC6E" type="10" limiting_length="20" id="10"/>
+		<field name="CtaCxC" uuid="CCB6F265F92F426BBC018BDF63646A34" type="10" limiting_length="20" id="11"/>
+		<field name="CtaVentas" uuid="456715955D134F66AF8695DF2DAFBEE7" type="10" limiting_length="20" id="12"/>
+		<field name="CtaIVAVentas" uuid="B2497654E9AF42EC89AAABAA642603C8" type="10" limiting_length="20" id="13"/>
+		<field name="CtaInventario" uuid="4A35F5F8F4CB4FAF808C1F34B8447AB7" type="10" limiting_length="20" id="14"/>
+		<field name="CtaCostoVentas" uuid="5BD6A6A2435C46818653EA850A5A4AFD" type="10" limiting_length="20" id="15"/>
+		<field name="CtaCxP" uuid="A178C7A8C7C84E3AAD5157032A5830AA" type="10" limiting_length="20" id="16"/>
+		<field name="CtaIVACompras" uuid="438FD0095CA9488C956FD57E2FA8E42D" type="10" limiting_length="20" id="17"/>
+		<field name="CtaAjusteInventario" uuid="330B335EBAA74043935E50901DBF651E" type="10" limiting_length="20" id="18"/>
+		<field name="Activo" uuid="3F2D268B77054755827867DE250DB1A6" type="1" id="19"/>
+		<primary_key field_name="EmpresaID" field_uuid="A786753C4CD840169AFD043AC061A1B7"/>
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="8">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="40" top="40" width="160" height="260"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="Sucursales" uuid="D9243F0865D04D9CA62358315D335727" id="2">
+		<field name="SucursalesID" uuid="702B8028F7674E2693DB82FB679C5474" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="EmpresaID" uuid="4C6216714BAB4F3085AC512ED2517A24" type="10" limiting_length="5" id="2"/>
+		<field name="Codigo" uuid="AFA8E29AE4844C0C8D24FADC86086534" type="10" limiting_length="20" id="3"/>
+		<field name="Nombre" uuid="809B5CE69FA64ED8A18274F95C9430C9" type="10" limiting_length="100" id="4"/>
+		<field name="Direccion" uuid="1C401DF5E34B4FADAD36FC0069305CBA" type="10" limiting_length="200" id="5"/>
+		<field name="Telefono" uuid="DC7879E3ABAC4929A1561C0B08EDF602" type="10" limiting_length="30" id="6"/>
+		<field name="Establecimiento" uuid="CB9AFC1CBE45415BB962F071A8522359" type="10" limiting_length="3" id="7"/>
+		<field name="PuntoEmision" uuid="2C49DA78F27941F7A0F1B615890989CE" type="10" limiting_length="3" id="8"/>
+		<field name="SecuencialFactura" uuid="719EFF729F3445FC86E79191DFDC9F37" type="4" id="9"/>
+		<field name="Activo" uuid="903B2164AE6F44F78F7E9B44CAF9B8AC" type="1" id="10"/>
+		<primary_key field_name="SucursalesID" field_uuid="702B8028F7674E2693DB82FB679C5474"/>
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="8">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="240" top="40" width="160" height="260"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="Roles" uuid="5BFE77AEF50341F7B90371ECF613864B" id="3" hide_in_REST="true">
+		<field name="RolesID" uuid="065F7F1CE268488B9A6CFF6AA8AD511D" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="EmpresaID" uuid="28F65EB070524AD7B0B16B4A18871D09" type="10" limiting_length="5" id="2"/>
+		<field name="Nombre" uuid="C19684F48FC544C6B4AED8A4B46EE41F" type="10" limiting_length="30" id="3"/>
+		<field name="Activo" uuid="B5315913D0404DA48D22150026F0B5F0" type="1" id="4"/>
+		<primary_key field_name="RolesID" field_uuid="065F7F1CE268488B9A6CFF6AA8AD511D"/>
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="4">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="440" top="40" width="160" height="260"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="Accesos" uuid="B5AC65982DBA482CBA7EBD7B8A5F46CA" id="4" hide_in_REST="true">
+		<field name="AccesosID" uuid="9A971B943ABE46CF9E2EE17577BED818" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="EmpresaID" uuid="595AFE469F014061AF9C139FAB62FE43" type="10" limiting_length="5" id="2"/>
+		<field name="RolesID" uuid="6A045F1942AD4426B3DC5145C82804F8" type="4" id="3"/>
+		<field name="Modulo" uuid="1A59E6A1A5444EF4BE94D41A8F84DE6A" type="10" limiting_length="20" id="4"/>
+		<field name="Leer" uuid="3D07A51F0D8D40C89A93FEF2F9692E9A" type="1" id="5"/>
+		<field name="Crear" uuid="F056506974A841B8B3B4362B63450ADA" type="1" id="6"/>
+		<field name="Editar" uuid="9D9F29167ED4441C90C4F3483E40C707" type="1" id="7"/>
+		<field name="Anular" uuid="745508755C7842D5BC2B8C05596500C5" type="1" id="8"/>
+		<primary_key field_name="AccesosID" field_uuid="9A971B943ABE46CF9E2EE17577BED818"/>
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="8">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="640" top="40" width="160" height="260"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="Usuarios" uuid="2827DBC7D9A04232B7DA6F1E1DD2D764" id="5" hide_in_REST="true">
+		<field name="UsuariosID" uuid="71DC5B7FB76449E291036AE17736448A" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="EmpresaID" uuid="A85EE0E42291460085BD3DDC5884B492" type="10" limiting_length="5" id="2"/>
+		<field name="SucursalesID" uuid="50922EE21BBF44D2ABEE801379459F46" type="4" id="3"/>
+		<field name="RolesID" uuid="56349FC70985492685A028D07803E097" type="4" id="4"/>
+		<field name="NombreAcceso" uuid="B9475689BD9349A8861AA93D29E38871" type="10" limiting_length="100" id="5"/>
+		<field name="Nombres" uuid="350D2FAE2D4B40178F74C95BB61BD95F" type="10" limiting_length="150" id="6"/>
+		<field name="Email" uuid="286D46411A1D4B7C84CF5BA87D21F8E5" type="10" limiting_length="100" id="7"/>
+		<field name="ClaveHash" uuid="A5E9E16AEC824249AB23EED9C1144667" type="10" limiting_length="255" id="8" hide_in_REST="true"/>
+		<field name="Activo" uuid="4AB20A59E1554FB4B64EC8A335D1B63F" type="1" id="9"/>
+		<field name="UltimoAcceso" uuid="7B9C0B454865443A9325D85B9C0262C7" type="8" id="10"/>
+		<field name="UltimoAccesoHora" uuid="183C7FC8C15E49CB8911EF795B865AFE" type="9" id="11"/>
+		<primary_key field_name="UsuariosID" field_uuid="71DC5B7FB76449E291036AE17736448A"/>
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="8">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="840" top="40" width="160" height="260"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="InventarioFicha" uuid="ED7DA25C9BD94A2D85854BB81EE31CD7" id="6">
+		<field name="InventarioID" uuid="EFD5964C06CE4987BB051A9543EEEA9E" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="EmpresaID" uuid="6DC501253877436299689B3499050F26" type="10" limiting_length="5" id="2"/>
+		<field name="Codigo" uuid="07182D94A5454E29972E6A731EF29E7D" type="10" limiting_length="30" id="3"/>
+		<field name="CodigoBarras" uuid="E9EF879F1774454CB6650976306D9E69" type="10" limiting_length="30" id="4"/>
+		<field name="Nombre" uuid="80918D02F38D4450A8E1F8C0BED811EC" type="10" limiting_length="150" id="5"/>
+		<field name="Descripcion" uuid="F464C218B6EF4B4198027BFB65636D59" type="14" id="6"/>
+		<field name="Categoria" uuid="17BA358C21484B7899B7B232A66A31D3" type="10" limiting_length="60" id="7"/>
+		<field name="Unidad" uuid="6ACD991E14584E41926B70D7093614B6" type="10" limiting_length="10" id="8"/>
+		<field name="Costo" uuid="093433C368BD48DEB4987E6FE322DCB2" type="6" id="9"/>
+		<field name="Precio" uuid="2A92CDD9F55F448791955E996083D23D" type="6" id="10"/>
+		<field name="PorcentajeIVA" uuid="C69669A042634F4F976545209CE055F8" type="6" id="11"/>
+		<field name="Stock" uuid="D94558B0563946EFBDAD9F2B710E8245" type="6" id="12"/>
+		<field name="StockMinimo" uuid="2824F776DB8A4D7AB0318AA5F14902E1" type="6" id="13"/>
+		<field name="Activo" uuid="F3C02825118C43AFBAEBE7640FE1BB1F" type="1" id="14"/>
+		<primary_key field_name="InventarioID" field_uuid="EFD5964C06CE4987BB051A9543EEEA9E"/>
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="8">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="1040" top="40" width="160" height="260"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="InventarioAjustesPrincipal" uuid="243AB81D79A24B33B801698C63FD26FA" id="7">
+		<field name="InventarioAjustesID" uuid="66DCAFB3F9D043C5BC392FAC3962A7FC" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="EmpresaID" uuid="C24DB445C3A44C4ABAFC906B88042705" type="10" limiting_length="5" id="2"/>
+		<field name="SucursalesID" uuid="787F69409D0E4E89927227FDB79BD7F5" type="4" id="3"/>
+		<field name="UsuariosID" uuid="E40BE4AA68824641BBBA361F80CBE5D7" type="4" id="4"/>
+		<field name="Fecha" uuid="D587F8C3B4734FDAA30E3E66116DFE7F" type="8" id="5"/>
+		<field name="Motivo" uuid="12FDC6D237654AFDBCDDAB12531B288F" type="10" limiting_length="200" id="6"/>
+		<field name="Estado" uuid="348FE392E2094E439B32A5DFF8AC53D9" type="10" limiting_length="10" id="7"/>
+		<field name="ContabilidadID" uuid="BA001CE7DAFA4F02AA47A4A32F971B59" type="4" id="8"/>
+		<primary_key field_name="InventarioAjustesID" field_uuid="66DCAFB3F9D043C5BC392FAC3962A7FC"/>
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="8">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="40" top="360" width="160" height="260"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="InventarioMovimientos" uuid="DDD21932F98F4103910D68F01580C916" id="8">
+		<field name="InventarioMovimientosID" uuid="0A8038EE43134877BE4805D3CF2EE9C0" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="EmpresaID" uuid="17EEBFAC359144F184A79F2BCB3928F2" type="10" limiting_length="5" id="2"/>
+		<field name="SucursalesID" uuid="B0DBEC0E80A8405D8C01ABD58C51DE42" type="4" id="3"/>
+		<field name="InventarioID" uuid="5E2E3C285EFF476E8B3D6AD345808E9B" type="4" id="4"/>
+		<field name="Fecha" uuid="C6C4EAC16E234692B02DF9781137E5AA" type="8" id="5"/>
+		<field name="Tipo" uuid="962337A1D7084144BAC4EDD4F31F4EA0" type="10" limiting_length="10" id="6"/>
+		<field name="Cantidad" uuid="1AF92F2F8D9749E484F65A9C1ED77166" type="6" id="7"/>
+		<field name="CostoUnit" uuid="1DAAF34C6BD040C8956DA4E51BEA8080" type="6" id="8"/>
+		<field name="TipoOrigen" uuid="A04A57921C454BD8AA2D3A69FE5A590B" type="10" limiting_length="10" id="9"/>
+		<field name="ClientesID" uuid="B759131BB2B14D91A2874086F6BF5190" type="4" id="10"/>
+		<field name="ProveedoresID" uuid="8E5D0835C7A64502B0267700C93BA85C" type="4" id="11"/>
+		<field name="InventarioAjustesID" uuid="3B77ACB0E36543A8817E12C387F1AC17" type="4" id="12"/>
+		<field name="ClientesFacturaID" uuid="02D70E0B6CC24798B97C8F06DF1891F0" type="4" id="13"/>
+		<field name="ProveedoresFacturaID" uuid="D59ACFD26CF848E8BD58B106993D8C94" type="4" id="14"/>
+		<field name="Anulacion" uuid="A54683C218C848A28C8B2B90366ACFA4" type="1" id="15"/>
+		<primary_key field_name="InventarioMovimientosID" field_uuid="0A8038EE43134877BE4805D3CF2EE9C0"/>
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="8">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="240" top="360" width="160" height="260"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="ClientesFicha" uuid="322014D79CB74996AEEC0270EF71C047" id="9">
+		<field name="ClientesID" uuid="C5006EE68C8F463E9F95A3EB6DA919BD" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="EmpresaID" uuid="4D134F3D807346A4BF4747A27334E49E" type="10" limiting_length="5" id="2"/>
+		<field name="Codigo" uuid="EE8D103221F742BDA6290D419EE52EE9" type="10" limiting_length="20" id="3"/>
+		<field name="TipoIdentificacion" uuid="C36E0E09B3E941D7BF072F9A1059F2DD" type="10" limiting_length="2" id="4"/>
+		<field name="Identificacion" uuid="FF1C2DBF39E646539C99C66E6282D9FE" type="10" limiting_length="20" id="5"/>
+		<field name="Nombre" uuid="B1F3A50BBA6D4E4E952F57269C23B7CF" type="10" limiting_length="150" id="6"/>
+		<field name="Direccion" uuid="8E52C9A3D16E473E8E6C965DE1C6BEA4" type="10" limiting_length="200" id="7"/>
+		<field name="Telefono" uuid="3F8AB44DDD914C61BE5778A3206D7886" type="10" limiting_length="30" id="8"/>
+		<field name="Email" uuid="C1D5552C04CC4A36AF6CF548A93E624C" type="10" limiting_length="100" id="9"/>
+		<field name="Activo" uuid="73ECCDC3A70E4FE786A225605AB4AABB" type="1" id="10"/>
+		<primary_key field_name="ClientesID" field_uuid="C5006EE68C8F463E9F95A3EB6DA919BD"/>
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="8">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="440" top="360" width="160" height="260"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="ClientesFacturaPrincipal" uuid="D8CC77F429664D69909BAA252D88C428" id="10">
+		<field name="ClientesFacturaID" uuid="C9563F8AE2F746C6B84F6028FC92C22F" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="EmpresaID" uuid="D2EBEB69CAD0410C9C333A08ACBED98E" type="10" limiting_length="5" id="2"/>
+		<field name="SucursalesID" uuid="2E2B7E966BC14008957DF2B210368FFA" type="4" id="3"/>
+		<field name="UsuariosID" uuid="97BB06E1EBC54CBCAA5F642CB9BEB2B3" type="4" id="4"/>
+		<field name="ClientesID" uuid="680169582C7A44DDB1B5860EA7997740" type="4" id="5"/>
+		<field name="Numero" uuid="492D35412D8141B592F0C7769D0F710F" type="10" limiting_length="17" id="6"/>
+		<field name="Fecha" uuid="2D78666FDD384002AE1515D3DBB55A9C" type="8" id="7"/>
+		<field name="Hora" uuid="FA89A9FB02234497824D3CC36AF31087" type="9" id="8"/>
+		<field name="Subtotal" uuid="ADF78438D4164E47893832A24A3AE490" type="6" id="9"/>
+		<field name="Descuento" uuid="41AB149CE9584C7C9A4AE368E2749A4B" type="6" id="10"/>
+		<field name="Impuesto" uuid="46D37F263D7D4A0E8DAD7514684B86DC" type="6" id="11"/>
+		<field name="Total" uuid="5D0CBDBEE6F847A68EA1B550EAA94BAE" type="6" id="12"/>
+		<field name="FormaPago" uuid="E3454FB0C61C425F8FB819A33C39B273" type="10" limiting_length="20" id="13"/>
+		<field name="Estado" uuid="3B27770B62BF458A85B8AF8B0E0A5CB8" type="10" limiting_length="10" id="14"/>
+		<field name="Observacion" uuid="2F8119EBA4294B16A01266D64FFA569F" type="14" id="15"/>
+		<field name="ContabilidadID" uuid="5E983FDBF5844CDCB679263D22CBC769" type="4" id="16"/>
+		<primary_key field_name="ClientesFacturaID" field_uuid="C9563F8AE2F746C6B84F6028FC92C22F"/>
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="8">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="640" top="360" width="160" height="260"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="ClientesFacturaDetalle" uuid="F802664A552442BE95133F30F45F30DA" id="11">
+		<field name="ClientesFacturaDetalleID" uuid="0B01F91E9A9E458598EC49391C710461" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="EmpresaID" uuid="EC9B3197B9644AC7815744775A361F83" type="10" limiting_length="5" id="2"/>
+		<field name="ClientesFacturaID" uuid="4ED36EB744994A1484722ACC9FE4CF81" type="4" id="3"/>
+		<field name="InventarioID" uuid="33BE35E4E53B423B9A41E99257B3266C" type="4" id="4"/>
+		<field name="Cantidad" uuid="81414D7231124B999A139AEFE7F37B01" type="6" id="5"/>
+		<field name="PrecioUnitario" uuid="596E566AA48943F0A080514B7CF5448B" type="6" id="6"/>
+		<field name="Descuento" uuid="A19973CB6F154E788C7E457802B3D117" type="6" id="7"/>
+		<field name="PorcentajeIVA" uuid="2DABEF54AE5F42A6BC4266880C255826" type="6" id="8"/>
+		<field name="Subtotal" uuid="CF76FE40AFA8485B80FF30AC8539F725" type="6" id="9"/>
+		<field name="ValorIVA" uuid="42ABFDCE9C654041BE17D70BCDB24010" type="6" id="10"/>
+		<field name="Total" uuid="88388CCF024A4A4F9A319B60B57C0BDD" type="6" id="11"/>
+		<primary_key field_name="ClientesFacturaDetalleID" field_uuid="0B01F91E9A9E458598EC49391C710461"/>
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="8">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="840" top="360" width="160" height="260"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="ProveedoresFicha" uuid="2D5B3228DAA84E7981B3903A094B3FE3" id="12">
+		<field name="ProveedoresID" uuid="C51479AFB6664C059C32C77BE5291845" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="EmpresaID" uuid="214C12DE5DA14170ACB6E9741677885E" type="10" limiting_length="5" id="2"/>
+		<field name="Codigo" uuid="4F09D10123B44F6FA78085F58CA51D26" type="10" limiting_length="20" id="3"/>
+		<field name="TipoIdentificacion" uuid="253FBB86AAFA49D597994A48D7CBFBC8" type="10" limiting_length="2" id="4"/>
+		<field name="Identificacion" uuid="D9EE496D4AE9418D97C0AC99D875559E" type="10" limiting_length="20" id="5"/>
+		<field name="Nombre" uuid="43D12469C32C45F5822720CD756B460E" type="10" limiting_length="150" id="6"/>
+		<field name="Direccion" uuid="6AA53A9CA5964D95A3DDCFD8458F3DCA" type="10" limiting_length="200" id="7"/>
+		<field name="Telefono" uuid="6400FCCA723B4DB38A8C3744D7AC08DF" type="10" limiting_length="30" id="8"/>
+		<field name="Email" uuid="0644942FC5264C2BB716BF537DE28DFF" type="10" limiting_length="100" id="9"/>
+		<field name="Activo" uuid="4B5F7A1D5B8747B6806957FFEE8069B3" type="1" id="10"/>
+		<primary_key field_name="ProveedoresID" field_uuid="C51479AFB6664C059C32C77BE5291845"/>
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="8">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="1040" top="360" width="160" height="260"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="ProveedoresFacturaPrincipal" uuid="575EBBDEDDCE4E24B61D59ABE476267C" id="13">
+		<field name="ProveedoresFacturaID" uuid="3CB087EF6FC04A3195FA45E6E11BF572" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="EmpresaID" uuid="518DA5C09C7C483FBC974C3D14A2F62A" type="10" limiting_length="5" id="2"/>
+		<field name="SucursalesID" uuid="F844261EED9742B98A6150CBE8E64B04" type="4" id="3"/>
+		<field name="UsuariosID" uuid="A3C87087CF2C459696A00E9C629AF1EE" type="4" id="4"/>
+		<field name="ProveedoresID" uuid="EFD40569AA6D40D7BD2B281719C95A86" type="4" id="5"/>
+		<field name="Numero" uuid="7FE60832683348C5A11B5B658C782460" type="10" limiting_length="20" id="6"/>
+		<field name="Fecha" uuid="514AF6FF3EE74317936D9DB0481D5984" type="8" id="7"/>
+		<field name="Subtotal" uuid="F232D9AB6B7F41AFAAE3B511AD450DE9" type="6" id="8"/>
+		<field name="Descuento" uuid="9018DB24A1124397B51BE42E0C1A06BA" type="6" id="9"/>
+		<field name="Impuesto" uuid="C34EDE5E51484579A46B9F5A644CB620" type="6" id="10"/>
+		<field name="Total" uuid="D5339F8430BD4569974759E3EFE813ED" type="6" id="11"/>
+		<field name="FormaPago" uuid="5837615816D34F5484A55B48D0412B73" type="10" limiting_length="20" id="12"/>
+		<field name="Estado" uuid="9F7A786591B44D599FF9308AD98B99F0" type="10" limiting_length="10" id="13"/>
+		<field name="Observacion" uuid="5122295E566B4EDD83ECC01716B587FE" type="14" id="14"/>
+		<field name="ContabilidadID" uuid="43EE1D5DF65B4C4986ED8776B36F153D" type="4" id="15"/>
+		<primary_key field_name="ProveedoresFacturaID" field_uuid="3CB087EF6FC04A3195FA45E6E11BF572"/>
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="8">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="40" top="680" width="160" height="260"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="ProveedoresFacturaDetalle" uuid="7B817803A6CD4577BF954ED70F2D8F7E" id="14">
+		<field name="ProveedoresFacturaDetalleID" uuid="18F0636DC5C84EFCBCA7A44A9D1A2F25" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="EmpresaID" uuid="C0CD208B12C64ACA84FDDE212866FE4E" type="10" limiting_length="5" id="2"/>
+		<field name="ProveedoresFacturaID" uuid="1D4386C1773B489582490857AAAB3FD1" type="4" id="3"/>
+		<field name="InventarioID" uuid="8F9B2462C1694E7B86B2919F87AC2902" type="4" id="4"/>
+		<field name="Cantidad" uuid="8F280082615143909348AAC50865CB5A" type="6" id="5"/>
+		<field name="CostoUnitario" uuid="6913B96E5F79429A87558311266F384F" type="6" id="6"/>
+		<field name="Descuento" uuid="1CAA76E2539E469C907BBB8F5BBE64A1" type="6" id="7"/>
+		<field name="PorcentajeIVA" uuid="143C96B920AA495890FF5F084CCA525A" type="6" id="8"/>
+		<field name="Subtotal" uuid="5936DC9C0AE74B6FAC2633D88A97732C" type="6" id="9"/>
+		<field name="ValorIVA" uuid="0A0E5CBB7BF6419AB5F67F1DA0C7BB20" type="6" id="10"/>
+		<field name="Total" uuid="28D4AF81F00A4669A9BC7652F3B02545" type="6" id="11"/>
+		<primary_key field_name="ProveedoresFacturaDetalleID" field_uuid="18F0636DC5C84EFCBCA7A44A9D1A2F25"/>
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="8">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="240" top="680" width="160" height="260"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="ContabilidadPrincipal" uuid="D274EB3A690C49F6BF73EC80C4369D1A" id="15">
+		<field name="ContabilidadID" uuid="55ED1A8AABC2469BB40E6D725CEB18A2" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="EmpresaID" uuid="98466D56E04341D7B7AED62BD6412246" type="10" limiting_length="5" id="2"/>
+		<field name="SucursalesID" uuid="9A623592C66E48D984530BA6FC5868C8" type="4" id="3"/>
+		<field name="Fecha" uuid="8D5A53CCF7394266BE65C38D3C78EAC2" type="8" id="4"/>
+		<field name="Numero" uuid="78422B0CDEFD4819BD79E5CCC00C2C06" type="4" id="5"/>
+		<field name="Concepto" uuid="B82D96F0B8C8484889D64999A794A73A" type="10" limiting_length="200" id="6"/>
+		<field name="Origen" uuid="CD5CF6DC23A5480A83FE8F890B434EFF" type="10" limiting_length="20" id="7"/>
+		<field name="Estado" uuid="8437F3E12E334AABA3FE21BD22E817AC" type="10" limiting_length="10" id="8"/>
+		<primary_key field_name="ContabilidadID" field_uuid="55ED1A8AABC2469BB40E6D725CEB18A2"/>
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="8">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="440" top="680" width="160" height="260"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="ContabilidadDetalle" uuid="CB125AB6FE464A7598C5B61E92807982" id="16">
+		<field name="ContabilidadDetalleID" uuid="4EEA630F38B74DB59B30C62F5555F119" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="EmpresaID" uuid="A8D4CE110749416592BE66CF4C8BA19C" type="10" limiting_length="5" id="2"/>
+		<field name="ContabilidadID" uuid="C4941384DA9F4CB5A9A62DE87E4283FB" type="4" id="3"/>
+		<field name="Cuenta" uuid="52689A5BDAF14E6BB345E93455AA1E84" type="10" limiting_length="20" id="4"/>
+		<field name="Debito" uuid="FB314CAF801B425D979C6D8406D541CA" type="6" id="5"/>
+		<field name="Credito" uuid="27DBDDABA20549A4BD736C80EA89F9EC" type="6" id="6"/>
+		<field name="Referencia" uuid="D22DCF16669F4E4B9EDA183693ED212C" type="10" limiting_length="100" id="7"/>
+		<primary_key field_name="ContabilidadDetalleID" field_uuid="4EEA630F38B74DB59B30C62F5555F119"/>
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="7">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="640" top="680" width="160" height="260"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="FichaBancos" uuid="612C3E86ADCC4B76ACF6AB827842A70D" id="17">
+		<field name="BancosID" uuid="AC635EE491884873B8EBF3533506E489" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="EmpresaID" uuid="3AB36251C0EE4926B56ED79B0304B764" type="10" limiting_length="5" id="2"/>
+		<field name="Banco" uuid="466E0754C86B4DC081AE40479A4EA53F" type="10" limiting_length="100" id="3"/>
+		<field name="NumeroCuenta" uuid="E42A671177DB42949828C1958C230344" type="10" limiting_length="30" id="4"/>
+		<field name="Tipo" uuid="5AAE65838A314F9FB7615AAFD9F47F09" type="10" limiting_length="20" id="5"/>
+		<field name="Moneda" uuid="521C0833CF084D68A9D42DE125F4A085" type="10" limiting_length="3" id="6"/>
+		<field name="Activo" uuid="3D16F0E89C594F7EBB873AB359644938" type="1" id="7"/>
+		<primary_key field_name="BancosID" field_uuid="AC635EE491884873B8EBF3533506E489"/>
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="7">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="840" top="680" width="160" height="260"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<relation uuid="8434AE6EFA504DDAAB556156E3222136" name_Nto1="empresa" name_1toN="sucursales" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="4C6216714BAB4F3085AC512ED2517A24" name="EmpresaID">
+				<table_ref uuid="D9243F0865D04D9CA62358315D335727" name="Sucursales"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="A786753C4CD840169AFD043AC061A1B7" name="EmpresaID">
+				<table_ref uuid="F0AD2D32DF9A47CB97AFC0C728FED746" name="Empresas"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="FC042FB930E644F9A7D8665BD0FF04AC" name_Nto1="empresa" name_1toN="roles" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="28F65EB070524AD7B0B16B4A18871D09" name="EmpresaID">
+				<table_ref uuid="5BFE77AEF50341F7B90371ECF613864B" name="Roles"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="A786753C4CD840169AFD043AC061A1B7" name="EmpresaID">
+				<table_ref uuid="F0AD2D32DF9A47CB97AFC0C728FED746" name="Empresas"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="03D5CA436BC74419A87839507F2D7F6B" name_Nto1="empresa" name_1toN="accesos" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="595AFE469F014061AF9C139FAB62FE43" name="EmpresaID">
+				<table_ref uuid="B5AC65982DBA482CBA7EBD7B8A5F46CA" name="Accesos"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="A786753C4CD840169AFD043AC061A1B7" name="EmpresaID">
+				<table_ref uuid="F0AD2D32DF9A47CB97AFC0C728FED746" name="Empresas"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="6227113D2F1D4D838502B3940465BF29" name_Nto1="empresa" name_1toN="usuarios" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="A85EE0E42291460085BD3DDC5884B492" name="EmpresaID">
+				<table_ref uuid="2827DBC7D9A04232B7DA6F1E1DD2D764" name="Usuarios"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="A786753C4CD840169AFD043AC061A1B7" name="EmpresaID">
+				<table_ref uuid="F0AD2D32DF9A47CB97AFC0C728FED746" name="Empresas"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="3B1F2115F54345C68600EBF36E74E12D" name_Nto1="empresa" name_1toN="inventarios" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="6DC501253877436299689B3499050F26" name="EmpresaID">
+				<table_ref uuid="ED7DA25C9BD94A2D85854BB81EE31CD7" name="InventarioFicha"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="A786753C4CD840169AFD043AC061A1B7" name="EmpresaID">
+				<table_ref uuid="F0AD2D32DF9A47CB97AFC0C728FED746" name="Empresas"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="77E81DDD5C9846AC8DDDF80DA6371E56" name_Nto1="empresa" name_1toN="inventarioAjustes" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="C24DB445C3A44C4ABAFC906B88042705" name="EmpresaID">
+				<table_ref uuid="243AB81D79A24B33B801698C63FD26FA" name="InventarioAjustesPrincipal"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="A786753C4CD840169AFD043AC061A1B7" name="EmpresaID">
+				<table_ref uuid="F0AD2D32DF9A47CB97AFC0C728FED746" name="Empresas"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="F47297B7685B4757B06BBFD1932559A3" name_Nto1="empresa" name_1toN="inventarioMovimientos" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="17EEBFAC359144F184A79F2BCB3928F2" name="EmpresaID">
+				<table_ref uuid="DDD21932F98F4103910D68F01580C916" name="InventarioMovimientos"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="A786753C4CD840169AFD043AC061A1B7" name="EmpresaID">
+				<table_ref uuid="F0AD2D32DF9A47CB97AFC0C728FED746" name="Empresas"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="DD7F57D05E7C48C8AF5FDC05D1D6FE38" name_Nto1="empresa" name_1toN="clientes" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="4D134F3D807346A4BF4747A27334E49E" name="EmpresaID">
+				<table_ref uuid="322014D79CB74996AEEC0270EF71C047" name="ClientesFicha"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="A786753C4CD840169AFD043AC061A1B7" name="EmpresaID">
+				<table_ref uuid="F0AD2D32DF9A47CB97AFC0C728FED746" name="Empresas"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="47D738BC4631403B8EDE8444CC963B58" name_Nto1="empresa" name_1toN="clientesFacturas" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="D2EBEB69CAD0410C9C333A08ACBED98E" name="EmpresaID">
+				<table_ref uuid="D8CC77F429664D69909BAA252D88C428" name="ClientesFacturaPrincipal"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="A786753C4CD840169AFD043AC061A1B7" name="EmpresaID">
+				<table_ref uuid="F0AD2D32DF9A47CB97AFC0C728FED746" name="Empresas"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="C58A0CE835F44A13B168EAAD063334F6" name_Nto1="empresa" name_1toN="clientesFacturaDetalles" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="EC9B3197B9644AC7815744775A361F83" name="EmpresaID">
+				<table_ref uuid="F802664A552442BE95133F30F45F30DA" name="ClientesFacturaDetalle"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="A786753C4CD840169AFD043AC061A1B7" name="EmpresaID">
+				<table_ref uuid="F0AD2D32DF9A47CB97AFC0C728FED746" name="Empresas"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="4511335FC89E407FB3396A4D5C317F44" name_Nto1="empresa" name_1toN="proveedores" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="214C12DE5DA14170ACB6E9741677885E" name="EmpresaID">
+				<table_ref uuid="2D5B3228DAA84E7981B3903A094B3FE3" name="ProveedoresFicha"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="A786753C4CD840169AFD043AC061A1B7" name="EmpresaID">
+				<table_ref uuid="F0AD2D32DF9A47CB97AFC0C728FED746" name="Empresas"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="5E8AC6D2B781435B840ACB9BD4B9E54D" name_Nto1="empresa" name_1toN="proveedoresFacturas" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="518DA5C09C7C483FBC974C3D14A2F62A" name="EmpresaID">
+				<table_ref uuid="575EBBDEDDCE4E24B61D59ABE476267C" name="ProveedoresFacturaPrincipal"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="A786753C4CD840169AFD043AC061A1B7" name="EmpresaID">
+				<table_ref uuid="F0AD2D32DF9A47CB97AFC0C728FED746" name="Empresas"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="E1F757C2D324487688C6D9C682885358" name_Nto1="empresa" name_1toN="proveedoresFacturaDetalles" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="C0CD208B12C64ACA84FDDE212866FE4E" name="EmpresaID">
+				<table_ref uuid="7B817803A6CD4577BF954ED70F2D8F7E" name="ProveedoresFacturaDetalle"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="A786753C4CD840169AFD043AC061A1B7" name="EmpresaID">
+				<table_ref uuid="F0AD2D32DF9A47CB97AFC0C728FED746" name="Empresas"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="7D52036EB95944B8A1CEAAEAA6FC49C9" name_Nto1="empresa" name_1toN="asientos" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="98466D56E04341D7B7AED62BD6412246" name="EmpresaID">
+				<table_ref uuid="D274EB3A690C49F6BF73EC80C4369D1A" name="ContabilidadPrincipal"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="A786753C4CD840169AFD043AC061A1B7" name="EmpresaID">
+				<table_ref uuid="F0AD2D32DF9A47CB97AFC0C728FED746" name="Empresas"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="5F9CC39AEDC64443A13BADDBD6434016" name_Nto1="empresa" name_1toN="contabilidadDetalles" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="A8D4CE110749416592BE66CF4C8BA19C" name="EmpresaID">
+				<table_ref uuid="CB125AB6FE464A7598C5B61E92807982" name="ContabilidadDetalle"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="A786753C4CD840169AFD043AC061A1B7" name="EmpresaID">
+				<table_ref uuid="F0AD2D32DF9A47CB97AFC0C728FED746" name="Empresas"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="498CEC61385242719932521F6A5CB7D8" name_Nto1="empresa" name_1toN="bancos" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="3AB36251C0EE4926B56ED79B0304B764" name="EmpresaID">
+				<table_ref uuid="612C3E86ADCC4B76ACF6AB827842A70D" name="FichaBancos"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="A786753C4CD840169AFD043AC061A1B7" name="EmpresaID">
+				<table_ref uuid="F0AD2D32DF9A47CB97AFC0C728FED746" name="Empresas"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="AEF6EE1A124240139ECC574633BA037E" name_Nto1="rol" name_1toN="accesos" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="6A045F1942AD4426B3DC5145C82804F8" name="RolesID">
+				<table_ref uuid="B5AC65982DBA482CBA7EBD7B8A5F46CA" name="Accesos"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="065F7F1CE268488B9A6CFF6AA8AD511D" name="RolesID">
+				<table_ref uuid="5BFE77AEF50341F7B90371ECF613864B" name="Roles"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="0079053ECE48401F9729A2D8EE50B928" name_Nto1="sucursal" name_1toN="usuarios" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="50922EE21BBF44D2ABEE801379459F46" name="SucursalesID">
+				<table_ref uuid="2827DBC7D9A04232B7DA6F1E1DD2D764" name="Usuarios"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="702B8028F7674E2693DB82FB679C5474" name="SucursalesID">
+				<table_ref uuid="D9243F0865D04D9CA62358315D335727" name="Sucursales"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="879C8E6068964A17959D7BDA642347F8" name_Nto1="rol" name_1toN="usuarios" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="56349FC70985492685A028D07803E097" name="RolesID">
+				<table_ref uuid="2827DBC7D9A04232B7DA6F1E1DD2D764" name="Usuarios"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="065F7F1CE268488B9A6CFF6AA8AD511D" name="RolesID">
+				<table_ref uuid="5BFE77AEF50341F7B90371ECF613864B" name="Roles"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="0C00835353C446689B170492A8F8FE8B" name_Nto1="sucursal" name_1toN="ajustes" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="787F69409D0E4E89927227FDB79BD7F5" name="SucursalesID">
+				<table_ref uuid="243AB81D79A24B33B801698C63FD26FA" name="InventarioAjustesPrincipal"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="702B8028F7674E2693DB82FB679C5474" name="SucursalesID">
+				<table_ref uuid="D9243F0865D04D9CA62358315D335727" name="Sucursales"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="D0E813D52E1F49C4AB570181C59782EC" name_Nto1="usuario" name_1toN="ajustes" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="E40BE4AA68824641BBBA361F80CBE5D7" name="UsuariosID">
+				<table_ref uuid="243AB81D79A24B33B801698C63FD26FA" name="InventarioAjustesPrincipal"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="71DC5B7FB76449E291036AE17736448A" name="UsuariosID">
+				<table_ref uuid="2827DBC7D9A04232B7DA6F1E1DD2D764" name="Usuarios"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="1B0A387268E84D1BB1929CD87AC0DD15" name_Nto1="asiento" name_1toN="ajustes" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="BA001CE7DAFA4F02AA47A4A32F971B59" name="ContabilidadID">
+				<table_ref uuid="243AB81D79A24B33B801698C63FD26FA" name="InventarioAjustesPrincipal"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="55ED1A8AABC2469BB40E6D725CEB18A2" name="ContabilidadID">
+				<table_ref uuid="D274EB3A690C49F6BF73EC80C4369D1A" name="ContabilidadPrincipal"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="51120FB5F2034DEAA4BF552FD302E6FF" name_Nto1="sucursal" name_1toN="movimientos" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="B0DBEC0E80A8405D8C01ABD58C51DE42" name="SucursalesID">
+				<table_ref uuid="DDD21932F98F4103910D68F01580C916" name="InventarioMovimientos"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="702B8028F7674E2693DB82FB679C5474" name="SucursalesID">
+				<table_ref uuid="D9243F0865D04D9CA62358315D335727" name="Sucursales"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="3F62021A1B60416A92C223AB1098B5E4" name_Nto1="inventario" name_1toN="movimientos" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="5E2E3C285EFF476E8B3D6AD345808E9B" name="InventarioID">
+				<table_ref uuid="DDD21932F98F4103910D68F01580C916" name="InventarioMovimientos"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="EFD5964C06CE4987BB051A9543EEEA9E" name="InventarioID">
+				<table_ref uuid="ED7DA25C9BD94A2D85854BB81EE31CD7" name="InventarioFicha"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="F07851EA68E447F4ABF2B9BADDC426A0" name_Nto1="cliente" name_1toN="movimientos" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="B759131BB2B14D91A2874086F6BF5190" name="ClientesID">
+				<table_ref uuid="DDD21932F98F4103910D68F01580C916" name="InventarioMovimientos"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="C5006EE68C8F463E9F95A3EB6DA919BD" name="ClientesID">
+				<table_ref uuid="322014D79CB74996AEEC0270EF71C047" name="ClientesFicha"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="8D1FF95C0D514B998E664E8AC4945BED" name_Nto1="proveedor" name_1toN="movimientos" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="8E5D0835C7A64502B0267700C93BA85C" name="ProveedoresID">
+				<table_ref uuid="DDD21932F98F4103910D68F01580C916" name="InventarioMovimientos"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="C51479AFB6664C059C32C77BE5291845" name="ProveedoresID">
+				<table_ref uuid="2D5B3228DAA84E7981B3903A094B3FE3" name="ProveedoresFicha"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="150CD4DE2C424E7085A78FF4D363F155" name_Nto1="ajuste" name_1toN="movimientos" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="3B77ACB0E36543A8817E12C387F1AC17" name="InventarioAjustesID">
+				<table_ref uuid="DDD21932F98F4103910D68F01580C916" name="InventarioMovimientos"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="66DCAFB3F9D043C5BC392FAC3962A7FC" name="InventarioAjustesID">
+				<table_ref uuid="243AB81D79A24B33B801698C63FD26FA" name="InventarioAjustesPrincipal"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="466F3734849541988CDF505EF74A80B0" name_Nto1="facturaCliente" name_1toN="movimientos" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="02D70E0B6CC24798B97C8F06DF1891F0" name="ClientesFacturaID">
+				<table_ref uuid="DDD21932F98F4103910D68F01580C916" name="InventarioMovimientos"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="C9563F8AE2F746C6B84F6028FC92C22F" name="ClientesFacturaID">
+				<table_ref uuid="D8CC77F429664D69909BAA252D88C428" name="ClientesFacturaPrincipal"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="4E2184D3CC314ECEBDBE42E0AFE80A62" name_Nto1="facturaProveedor" name_1toN="movimientos" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="D59ACFD26CF848E8BD58B106993D8C94" name="ProveedoresFacturaID">
+				<table_ref uuid="DDD21932F98F4103910D68F01580C916" name="InventarioMovimientos"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="3CB087EF6FC04A3195FA45E6E11BF572" name="ProveedoresFacturaID">
+				<table_ref uuid="575EBBDEDDCE4E24B61D59ABE476267C" name="ProveedoresFacturaPrincipal"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="6B822DA3CE7140BB9804871E13EBC2F7" name_Nto1="sucursal" name_1toN="facturasClientes" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="2E2B7E966BC14008957DF2B210368FFA" name="SucursalesID">
+				<table_ref uuid="D8CC77F429664D69909BAA252D88C428" name="ClientesFacturaPrincipal"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="702B8028F7674E2693DB82FB679C5474" name="SucursalesID">
+				<table_ref uuid="D9243F0865D04D9CA62358315D335727" name="Sucursales"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="1C487E2CC4B24148BC2B56FDA952ED4F" name_Nto1="usuario" name_1toN="facturasClientes" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="97BB06E1EBC54CBCAA5F642CB9BEB2B3" name="UsuariosID">
+				<table_ref uuid="D8CC77F429664D69909BAA252D88C428" name="ClientesFacturaPrincipal"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="71DC5B7FB76449E291036AE17736448A" name="UsuariosID">
+				<table_ref uuid="2827DBC7D9A04232B7DA6F1E1DD2D764" name="Usuarios"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="91064737D0B24257B597B20F4A5E710C" name_Nto1="cliente" name_1toN="facturas" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="680169582C7A44DDB1B5860EA7997740" name="ClientesID">
+				<table_ref uuid="D8CC77F429664D69909BAA252D88C428" name="ClientesFacturaPrincipal"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="C5006EE68C8F463E9F95A3EB6DA919BD" name="ClientesID">
+				<table_ref uuid="322014D79CB74996AEEC0270EF71C047" name="ClientesFicha"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="2D0EE2076CEE427097C18A59B615D3F0" name_Nto1="asiento" name_1toN="facturasClientes" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="5E983FDBF5844CDCB679263D22CBC769" name="ContabilidadID">
+				<table_ref uuid="D8CC77F429664D69909BAA252D88C428" name="ClientesFacturaPrincipal"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="55ED1A8AABC2469BB40E6D725CEB18A2" name="ContabilidadID">
+				<table_ref uuid="D274EB3A690C49F6BF73EC80C4369D1A" name="ContabilidadPrincipal"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="FB5D144AEAE34C6E8AF9B44CC564CA65" name_Nto1="factura" name_1toN="detalles" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="4ED36EB744994A1484722ACC9FE4CF81" name="ClientesFacturaID">
+				<table_ref uuid="F802664A552442BE95133F30F45F30DA" name="ClientesFacturaDetalle"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="C9563F8AE2F746C6B84F6028FC92C22F" name="ClientesFacturaID">
+				<table_ref uuid="D8CC77F429664D69909BAA252D88C428" name="ClientesFacturaPrincipal"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="A23107CD482D4F6A9E3724975A9F47E1" name_Nto1="inventario" name_1toN="lineasFacturaCliente" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="33BE35E4E53B423B9A41E99257B3266C" name="InventarioID">
+				<table_ref uuid="F802664A552442BE95133F30F45F30DA" name="ClientesFacturaDetalle"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="EFD5964C06CE4987BB051A9543EEEA9E" name="InventarioID">
+				<table_ref uuid="ED7DA25C9BD94A2D85854BB81EE31CD7" name="InventarioFicha"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="885C4ECBDB754F1182191B60290ED9DC" name_Nto1="sucursal" name_1toN="facturasProveedores" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="F844261EED9742B98A6150CBE8E64B04" name="SucursalesID">
+				<table_ref uuid="575EBBDEDDCE4E24B61D59ABE476267C" name="ProveedoresFacturaPrincipal"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="702B8028F7674E2693DB82FB679C5474" name="SucursalesID">
+				<table_ref uuid="D9243F0865D04D9CA62358315D335727" name="Sucursales"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="9042EE903C83489CB2F328303656796C" name_Nto1="usuario" name_1toN="facturasProveedores" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="A3C87087CF2C459696A00E9C629AF1EE" name="UsuariosID">
+				<table_ref uuid="575EBBDEDDCE4E24B61D59ABE476267C" name="ProveedoresFacturaPrincipal"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="71DC5B7FB76449E291036AE17736448A" name="UsuariosID">
+				<table_ref uuid="2827DBC7D9A04232B7DA6F1E1DD2D764" name="Usuarios"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="4CBF527B0AB0401AB88DC343490F6F03" name_Nto1="proveedor" name_1toN="facturas" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="EFD40569AA6D40D7BD2B281719C95A86" name="ProveedoresID">
+				<table_ref uuid="575EBBDEDDCE4E24B61D59ABE476267C" name="ProveedoresFacturaPrincipal"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="C51479AFB6664C059C32C77BE5291845" name="ProveedoresID">
+				<table_ref uuid="2D5B3228DAA84E7981B3903A094B3FE3" name="ProveedoresFicha"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="DCC028CE1130406E89E9DC8128CD605D" name_Nto1="asiento" name_1toN="facturasProveedores" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="43EE1D5DF65B4C4986ED8776B36F153D" name="ContabilidadID">
+				<table_ref uuid="575EBBDEDDCE4E24B61D59ABE476267C" name="ProveedoresFacturaPrincipal"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="55ED1A8AABC2469BB40E6D725CEB18A2" name="ContabilidadID">
+				<table_ref uuid="D274EB3A690C49F6BF73EC80C4369D1A" name="ContabilidadPrincipal"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="44F5149462224B8E9EE007E15C989AC1" name_Nto1="factura" name_1toN="detalles" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="1D4386C1773B489582490857AAAB3FD1" name="ProveedoresFacturaID">
+				<table_ref uuid="7B817803A6CD4577BF954ED70F2D8F7E" name="ProveedoresFacturaDetalle"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="3CB087EF6FC04A3195FA45E6E11BF572" name="ProveedoresFacturaID">
+				<table_ref uuid="575EBBDEDDCE4E24B61D59ABE476267C" name="ProveedoresFacturaPrincipal"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="A403FB825679420786AC63BE9E1D0EFE" name_Nto1="inventario" name_1toN="lineasFacturaProveedor" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="8F9B2462C1694E7B86B2919F87AC2902" name="InventarioID">
+				<table_ref uuid="7B817803A6CD4577BF954ED70F2D8F7E" name="ProveedoresFacturaDetalle"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="EFD5964C06CE4987BB051A9543EEEA9E" name="InventarioID">
+				<table_ref uuid="ED7DA25C9BD94A2D85854BB81EE31CD7" name="InventarioFicha"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="2CED88A0FAAD49658B8F7E7A18128D22" name_Nto1="sucursal" name_1toN="asientos" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="9A623592C66E48D984530BA6FC5868C8" name="SucursalesID">
+				<table_ref uuid="D274EB3A690C49F6BF73EC80C4369D1A" name="ContabilidadPrincipal"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="702B8028F7674E2693DB82FB679C5474" name="SucursalesID">
+				<table_ref uuid="D9243F0865D04D9CA62358315D335727" name="Sucursales"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="196AF04ADDAB4C6B94620D09861D2784" name_Nto1="asiento" name_1toN="detalles" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="C4941384DA9F4CB5A9A62DE87E4283FB" name="ContabilidadID">
+				<table_ref uuid="CB125AB6FE464A7598C5B61E92807982" name="ContabilidadDetalle"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="55ED1A8AABC2469BB40E6D725CEB18A2" name="ContabilidadID">
+				<table_ref uuid="D274EB3A690C49F6BF73EC80C4369D1A" name="ContabilidadPrincipal"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<index kind="regular" uuid="04645F9EB6F549D49914C1632925A439" type="7">
+		<field_ref uuid="C24DB445C3A44C4ABAFC906B88042705" name="EmpresaID">
+			<table_ref uuid="243AB81D79A24B33B801698C63FD26FA" name="InventarioAjustesPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="060EF9090DE44015BB245F00C577548E" type="7">
+		<field_ref uuid="6A045F1942AD4426B3DC5145C82804F8" name="RolesID">
+			<table_ref uuid="B5AC65982DBA482CBA7EBD7B8A5F46CA" name="Accesos"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="0926D0ADCDDB493B850E605CD57CDCCD" type="7">
+		<field_ref uuid="4C6216714BAB4F3085AC512ED2517A24" name="EmpresaID">
+			<table_ref uuid="D9243F0865D04D9CA62358315D335727" name="Sucursales"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="0C3CD3E570E44B76AFF5D09A2F986A76" type="7">
+		<field_ref uuid="4F09D10123B44F6FA78085F58CA51D26" name="Codigo">
+			<table_ref uuid="2D5B3228DAA84E7981B3903A094B3FE3" name="ProveedoresFicha"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="0DE003C0444F448E8ED71BE444D3F922" type="7">
+		<field_ref uuid="B759131BB2B14D91A2874086F6BF5190" name="ClientesID">
+			<table_ref uuid="DDD21932F98F4103910D68F01580C916" name="InventarioMovimientos"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="14313E03043C43FF8802283BFB9C8BE0" type="7">
+		<field_ref uuid="2D78666FDD384002AE1515D3DBB55A9C" name="Fecha">
+			<table_ref uuid="D8CC77F429664D69909BAA252D88C428" name="ClientesFacturaPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="15271329854F4F539CA97D3A898D8E32" type="7">
+		<field_ref uuid="98466D56E04341D7B7AED62BD6412246" name="EmpresaID">
+			<table_ref uuid="D274EB3A690C49F6BF73EC80C4369D1A" name="ContabilidadPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="168E8C01571E42B0877DA4EC733C1359" type="7">
+		<field_ref uuid="C4941384DA9F4CB5A9A62DE87E4283FB" name="ContabilidadID">
+			<table_ref uuid="CB125AB6FE464A7598C5B61E92807982" name="ContabilidadDetalle"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="16C3277BF9F9409681367E7CBD64734F" type="7">
+		<field_ref uuid="B9475689BD9349A8861AA93D29E38871" name="NombreAcceso">
+			<table_ref uuid="2827DBC7D9A04232B7DA6F1E1DD2D764" name="Usuarios"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="1976217DB45848C8BF7596881807D6F8" type="7">
+		<field_ref uuid="78422B0CDEFD4819BD79E5CCC00C2C06" name="Numero">
+			<table_ref uuid="D274EB3A690C49F6BF73EC80C4369D1A" name="ContabilidadPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="1BA8E16221A344D5A9421DBAF8DDD536" type="7">
+		<field_ref uuid="50922EE21BBF44D2ABEE801379459F46" name="SucursalesID">
+			<table_ref uuid="2827DBC7D9A04232B7DA6F1E1DD2D764" name="Usuarios"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="269C4F3026664CD6B961C3DBA3303DB5" type="7">
+		<field_ref uuid="EFD40569AA6D40D7BD2B281719C95A86" name="ProveedoresID">
+			<table_ref uuid="575EBBDEDDCE4E24B61D59ABE476267C" name="ProveedoresFacturaPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="2958377EFAC74251ADEFF0B3DB5E5EFD" type="1">
+		<field_ref uuid="55ED1A8AABC2469BB40E6D725CEB18A2" name="ContabilidadID">
+			<table_ref uuid="D274EB3A690C49F6BF73EC80C4369D1A" name="ContabilidadPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="29BBAA5081DE4FAF81C0AF0F8E6F08C0" type="7">
+		<field_ref uuid="214C12DE5DA14170ACB6E9741677885E" name="EmpresaID">
+			<table_ref uuid="2D5B3228DAA84E7981B3903A094B3FE3" name="ProveedoresFicha"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="29BD6D4EFF1447ACA69BFFBFC70325BF" type="7">
+		<field_ref uuid="02D70E0B6CC24798B97C8F06DF1891F0" name="ClientesFacturaID">
+			<table_ref uuid="DDD21932F98F4103910D68F01580C916" name="InventarioMovimientos"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="300933262D914CC29C961B8FCFD511F8" type="1">
+		<field_ref uuid="A786753C4CD840169AFD043AC061A1B7" name="EmpresaID">
+			<table_ref uuid="F0AD2D32DF9A47CB97AFC0C728FED746" name="Empresas"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="300A3F8000864CB3B4E72A6493AFE2E2" type="7">
+		<field_ref uuid="17EEBFAC359144F184A79F2BCB3928F2" name="EmpresaID">
+			<table_ref uuid="DDD21932F98F4103910D68F01580C916" name="InventarioMovimientos"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="3012B454B4224CB8B0197A074A02B03E" type="7">
+		<field_ref uuid="8E5D0835C7A64502B0267700C93BA85C" name="ProveedoresID">
+			<table_ref uuid="DDD21932F98F4103910D68F01580C916" name="InventarioMovimientos"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="30FCD64A2E424643A04E6A09FE6A3609" type="7">
+		<field_ref uuid="AFA8E29AE4844C0C8D24FADC86086534" name="Codigo">
+			<table_ref uuid="D9243F0865D04D9CA62358315D335727" name="Sucursales"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="31E22173B76741A483CEB15D9D9863F3" type="7">
+		<field_ref uuid="E40BE4AA68824641BBBA361F80CBE5D7" name="UsuariosID">
+			<table_ref uuid="243AB81D79A24B33B801698C63FD26FA" name="InventarioAjustesPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="32C1B27B1E47449B8D2F7D804D9B0297" type="1">
+		<field_ref uuid="0B01F91E9A9E458598EC49391C710461" name="ClientesFacturaDetalleID">
+			<table_ref uuid="F802664A552442BE95133F30F45F30DA" name="ClientesFacturaDetalle"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="36CE01EB5A5C45869F630351C0CF60F0" type="1">
+		<field_ref uuid="C5006EE68C8F463E9F95A3EB6DA919BD" name="ClientesID">
+			<table_ref uuid="322014D79CB74996AEEC0270EF71C047" name="ClientesFicha"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="3B68E33DA146422DBAD190291F118AF2" type="7">
+		<field_ref uuid="6DC501253877436299689B3499050F26" name="EmpresaID">
+			<table_ref uuid="ED7DA25C9BD94A2D85854BB81EE31CD7" name="InventarioFicha"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="3CC1AAA1B3F34E3DBCD81DD8D432C2A1" type="7">
+		<field_ref uuid="E42A671177DB42949828C1958C230344" name="NumeroCuenta">
+			<table_ref uuid="612C3E86ADCC4B76ACF6AB827842A70D" name="FichaBancos"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="3E977867111D473BA53D88203C372DFC" type="7">
+		<field_ref uuid="518DA5C09C7C483FBC974C3D14A2F62A" name="EmpresaID">
+			<table_ref uuid="575EBBDEDDCE4E24B61D59ABE476267C" name="ProveedoresFacturaPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="3F6E447793E54D908B0D67630F70CC30" type="7">
+		<field_ref uuid="72AAB9DD1E44448AA26EFD2F068B0E31" name="RUC">
+			<table_ref uuid="F0AD2D32DF9A47CB97AFC0C728FED746" name="Empresas"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="407A2E6D5E554BF4ABC8A27AF9EDA86A" type="7">
+		<field_ref uuid="D9EE496D4AE9418D97C0AC99D875559E" name="Identificacion">
+			<table_ref uuid="2D5B3228DAA84E7981B3903A094B3FE3" name="ProveedoresFicha"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="42991F671C364967918D14FEC0709246" type="1">
+		<field_ref uuid="C9563F8AE2F746C6B84F6028FC92C22F" name="ClientesFacturaID">
+			<table_ref uuid="D8CC77F429664D69909BAA252D88C428" name="ClientesFacturaPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="439192E4FE9F47E7AAFE70816D37C500" type="7">
+		<field_ref uuid="A3C87087CF2C459696A00E9C629AF1EE" name="UsuariosID">
+			<table_ref uuid="575EBBDEDDCE4E24B61D59ABE476267C" name="ProveedoresFacturaPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="442CF78259FB481D8302BA8AFA775B93" type="1">
+		<field_ref uuid="3CB087EF6FC04A3195FA45E6E11BF572" name="ProveedoresFacturaID">
+			<table_ref uuid="575EBBDEDDCE4E24B61D59ABE476267C" name="ProveedoresFacturaPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="46483A535131469B8F3D2463C4884D35" type="7">
+		<field_ref uuid="2E2B7E966BC14008957DF2B210368FFA" name="SucursalesID">
+			<table_ref uuid="D8CC77F429664D69909BAA252D88C428" name="ClientesFacturaPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="51D069D574394C33AA21A95F50FB5EDA" type="7">
+		<field_ref uuid="B0DBEC0E80A8405D8C01ABD58C51DE42" name="SucursalesID">
+			<table_ref uuid="DDD21932F98F4103910D68F01580C916" name="InventarioMovimientos"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="5E2C2C9B47C74853B7B9E22B4ED51E00" type="7">
+		<field_ref uuid="33BE35E4E53B423B9A41E99257B3266C" name="InventarioID">
+			<table_ref uuid="F802664A552442BE95133F30F45F30DA" name="ClientesFacturaDetalle"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="5E40CD587201498A8CF2A21689C8BF79" type="7">
+		<field_ref uuid="EC9B3197B9644AC7815744775A361F83" name="EmpresaID">
+			<table_ref uuid="F802664A552442BE95133F30F45F30DA" name="ClientesFacturaDetalle"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="604D5CB38CD941CEB830EE4AA1473721" type="7">
+		<field_ref uuid="3B77ACB0E36543A8817E12C387F1AC17" name="InventarioAjustesID">
+			<table_ref uuid="DDD21932F98F4103910D68F01580C916" name="InventarioMovimientos"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="607AB69462624334BBA368EE6FE78AF8" type="1">
+		<field_ref uuid="0A8038EE43134877BE4805D3CF2EE9C0" name="InventarioMovimientosID">
+			<table_ref uuid="DDD21932F98F4103910D68F01580C916" name="InventarioMovimientos"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="60B5E6A3557D466A89654E632E9FBD8C" type="7">
+		<field_ref uuid="8F9B2462C1694E7B86B2919F87AC2902" name="InventarioID">
+			<table_ref uuid="7B817803A6CD4577BF954ED70F2D8F7E" name="ProveedoresFacturaDetalle"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="71056FB98E2D44A883F54965B410AFEF" type="7">
+		<field_ref uuid="43EE1D5DF65B4C4986ED8776B36F153D" name="ContabilidadID">
+			<table_ref uuid="575EBBDEDDCE4E24B61D59ABE476267C" name="ProveedoresFacturaPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="784E65A407A14B18A7E82F5A70DDD6E1" type="7">
+		<field_ref uuid="5E983FDBF5844CDCB679263D22CBC769" name="ContabilidadID">
+			<table_ref uuid="D8CC77F429664D69909BAA252D88C428" name="ClientesFacturaPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="7BB7429DBA7345218CCD0E3C69039AC4" type="7">
+		<field_ref uuid="C6C4EAC16E234692B02DF9781137E5AA" name="Fecha">
+			<table_ref uuid="DDD21932F98F4103910D68F01580C916" name="InventarioMovimientos"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="831EBD6C435A427BAD1F4AB69A500B96" type="7">
+		<field_ref uuid="A8D4CE110749416592BE66CF4C8BA19C" name="EmpresaID">
+			<table_ref uuid="CB125AB6FE464A7598C5B61E92807982" name="ContabilidadDetalle"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="8381797D0B8341CF98C8507718159CB2" type="1">
+		<field_ref uuid="EFD5964C06CE4987BB051A9543EEEA9E" name="InventarioID">
+			<table_ref uuid="ED7DA25C9BD94A2D85854BB81EE31CD7" name="InventarioFicha"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="87D953C69DB64779AD7AC5EB2DA65902" type="7">
+		<field_ref uuid="52689A5BDAF14E6BB345E93455AA1E84" name="Cuenta">
+			<table_ref uuid="CB125AB6FE464A7598C5B61E92807982" name="ContabilidadDetalle"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="8B7CE1C7455148B0AC0D9BD311C3A5F0" type="7">
+		<field_ref uuid="EE8D103221F742BDA6290D419EE52EE9" name="Codigo">
+			<table_ref uuid="322014D79CB74996AEEC0270EF71C047" name="ClientesFicha"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="8BF020CD05AE42BFBFA9CC4626C42D7E" type="7">
+		<field_ref uuid="F844261EED9742B98A6150CBE8E64B04" name="SucursalesID">
+			<table_ref uuid="575EBBDEDDCE4E24B61D59ABE476267C" name="ProveedoresFacturaPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="8D510EA80367469B9ECB0AEB88576799" type="7">
+		<field_ref uuid="BA001CE7DAFA4F02AA47A4A32F971B59" name="ContabilidadID">
+			<table_ref uuid="243AB81D79A24B33B801698C63FD26FA" name="InventarioAjustesPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="8D54DDE7F4AA45329CB99A67C1B6FDBE" type="1">
+		<field_ref uuid="18F0636DC5C84EFCBCA7A44A9D1A2F25" name="ProveedoresFacturaDetalleID">
+			<table_ref uuid="7B817803A6CD4577BF954ED70F2D8F7E" name="ProveedoresFacturaDetalle"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="8DBDD9AB42AE46498499F6D5B2F27C50" type="1">
+		<field_ref uuid="71DC5B7FB76449E291036AE17736448A" name="UsuariosID">
+			<table_ref uuid="2827DBC7D9A04232B7DA6F1E1DD2D764" name="Usuarios"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="8F049596B5FC469DB36237E1AC0198F3" type="7">
+		<field_ref uuid="7FE60832683348C5A11B5B658C782460" name="Numero">
+			<table_ref uuid="575EBBDEDDCE4E24B61D59ABE476267C" name="ProveedoresFacturaPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="8F68D88524DD44249BBE4F623E7143E5" type="7">
+		<field_ref uuid="9A623592C66E48D984530BA6FC5868C8" name="SucursalesID">
+			<table_ref uuid="D274EB3A690C49F6BF73EC80C4369D1A" name="ContabilidadPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="90507206AA49445AAE1942CBC1454547" type="1">
+		<field_ref uuid="C51479AFB6664C059C32C77BE5291845" name="ProveedoresID">
+			<table_ref uuid="2D5B3228DAA84E7981B3903A094B3FE3" name="ProveedoresFicha"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="972D3F3C29AA41549D2A4C621F8CF69A" type="7">
+		<field_ref uuid="3AB36251C0EE4926B56ED79B0304B764" name="EmpresaID">
+			<table_ref uuid="612C3E86ADCC4B76ACF6AB827842A70D" name="FichaBancos"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="9EFBA74E114E40539F34873A71B1ACF2" type="7">
+		<field_ref uuid="4ED36EB744994A1484722ACC9FE4CF81" name="ClientesFacturaID">
+			<table_ref uuid="F802664A552442BE95133F30F45F30DA" name="ClientesFacturaDetalle"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="A052951D00CD4CA48873D2092E46E681" type="1">
+		<field_ref uuid="AC635EE491884873B8EBF3533506E489" name="BancosID">
+			<table_ref uuid="612C3E86ADCC4B76ACF6AB827842A70D" name="FichaBancos"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="A3228061D44848598985F0FB78CC802D" type="7">
+		<field_ref uuid="A85EE0E42291460085BD3DDC5884B492" name="EmpresaID">
+			<table_ref uuid="2827DBC7D9A04232B7DA6F1E1DD2D764" name="Usuarios"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="A5AE21820BF34A9180703FDB3D959D56" type="7">
+		<field_ref uuid="82B43ACE875C4B5AB6BE422220A18AAC" name="Dominio">
+			<table_ref uuid="F0AD2D32DF9A47CB97AFC0C728FED746" name="Empresas"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="AD686A3834F340A9935AAB430024FC83" type="7">
+		<field_ref uuid="1A59E6A1A5444EF4BE94D41A8F84DE6A" name="Modulo">
+			<table_ref uuid="B5AC65982DBA482CBA7EBD7B8A5F46CA" name="Accesos"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="B098280F0116477C9E6E86E6713F3E4D" type="7">
+		<field_ref uuid="07182D94A5454E29972E6A731EF29E7D" name="Codigo">
+			<table_ref uuid="ED7DA25C9BD94A2D85854BB81EE31CD7" name="InventarioFicha"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="B1BEBF72919E45018DDEAE18956A7C46" type="7">
+		<field_ref uuid="97BB06E1EBC54CBCAA5F642CB9BEB2B3" name="UsuariosID">
+			<table_ref uuid="D8CC77F429664D69909BAA252D88C428" name="ClientesFacturaPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="B67DF6BF19604D53BE3A7BD11A145ED0" type="7">
+		<field_ref uuid="D587F8C3B4734FDAA30E3E66116DFE7F" name="Fecha">
+			<table_ref uuid="243AB81D79A24B33B801698C63FD26FA" name="InventarioAjustesPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="BD0FD2F16F684DE38E3E37766DE4C91C" type="7">
+		<field_ref uuid="8D5A53CCF7394266BE65C38D3C78EAC2" name="Fecha">
+			<table_ref uuid="D274EB3A690C49F6BF73EC80C4369D1A" name="ContabilidadPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="BD85DFBA57F4440F9EF56C8A81BDDD82" type="7">
+		<field_ref uuid="56349FC70985492685A028D07803E097" name="RolesID">
+			<table_ref uuid="2827DBC7D9A04232B7DA6F1E1DD2D764" name="Usuarios"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="C0B411531A4C4C319F76259C988F40D3" type="7">
+		<field_ref uuid="C19684F48FC544C6B4AED8A4B46EE41F" name="Nombre">
+			<table_ref uuid="5BFE77AEF50341F7B90371ECF613864B" name="Roles"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="C0F93526535B414B884C160950F994C3" type="7">
+		<field_ref uuid="D59ACFD26CF848E8BD58B106993D8C94" name="ProveedoresFacturaID">
+			<table_ref uuid="DDD21932F98F4103910D68F01580C916" name="InventarioMovimientos"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="C3D4F811680E4C76A039AB4F85C36E8F" type="1">
+		<field_ref uuid="702B8028F7674E2693DB82FB679C5474" name="SucursalesID">
+			<table_ref uuid="D9243F0865D04D9CA62358315D335727" name="Sucursales"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="C41B9B7EA60E4F798A9072E94FF141F1" type="7">
+		<field_ref uuid="E9EF879F1774454CB6650976306D9E69" name="CodigoBarras">
+			<table_ref uuid="ED7DA25C9BD94A2D85854BB81EE31CD7" name="InventarioFicha"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="C6DBD5CD58A542CFAD7CEE3ECBD58B72" type="7">
+		<field_ref uuid="595AFE469F014061AF9C139FAB62FE43" name="EmpresaID">
+			<table_ref uuid="B5AC65982DBA482CBA7EBD7B8A5F46CA" name="Accesos"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="C7EE4A09BD404F39B6032F641E587405" type="7">
+		<field_ref uuid="514AF6FF3EE74317936D9DB0481D5984" name="Fecha">
+			<table_ref uuid="575EBBDEDDCE4E24B61D59ABE476267C" name="ProveedoresFacturaPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="CBE15B3E676A42F2BA254077A11B8B41" type="1">
+		<field_ref uuid="66DCAFB3F9D043C5BC392FAC3962A7FC" name="InventarioAjustesID">
+			<table_ref uuid="243AB81D79A24B33B801698C63FD26FA" name="InventarioAjustesPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="CF48E5BD6ABC43E685C7E3699BB92615" type="7">
+		<field_ref uuid="680169582C7A44DDB1B5860EA7997740" name="ClientesID">
+			<table_ref uuid="D8CC77F429664D69909BAA252D88C428" name="ClientesFacturaPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="D1AB94D974A848F8A95E5225B0298F5F" type="7">
+		<field_ref uuid="C0CD208B12C64ACA84FDDE212866FE4E" name="EmpresaID">
+			<table_ref uuid="7B817803A6CD4577BF954ED70F2D8F7E" name="ProveedoresFacturaDetalle"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="D36B098F0A434D259D846233C42E3DB2" type="7">
+		<field_ref uuid="1D4386C1773B489582490857AAAB3FD1" name="ProveedoresFacturaID">
+			<table_ref uuid="7B817803A6CD4577BF954ED70F2D8F7E" name="ProveedoresFacturaDetalle"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="D7284774EA8B4B4DAA939D0D5596FFC6" type="7">
+		<field_ref uuid="4D134F3D807346A4BF4747A27334E49E" name="EmpresaID">
+			<table_ref uuid="322014D79CB74996AEEC0270EF71C047" name="ClientesFicha"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="D8B77C0831074673A11FDF9172235693" type="7">
+		<field_ref uuid="5E2E3C285EFF476E8B3D6AD345808E9B" name="InventarioID">
+			<table_ref uuid="DDD21932F98F4103910D68F01580C916" name="InventarioMovimientos"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="DEAEA87A79EF48609A707D49E2723505" type="7">
+		<field_ref uuid="28F65EB070524AD7B0B16B4A18871D09" name="EmpresaID">
+			<table_ref uuid="5BFE77AEF50341F7B90371ECF613864B" name="Roles"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="E0AAC1B6E81749479B8746530B301E1C" type="1">
+		<field_ref uuid="065F7F1CE268488B9A6CFF6AA8AD511D" name="RolesID">
+			<table_ref uuid="5BFE77AEF50341F7B90371ECF613864B" name="Roles"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="E6014AC403AD443BA46A83E361AEBD70" type="7">
+		<field_ref uuid="286D46411A1D4B7C84CF5BA87D21F8E5" name="Email">
+			<table_ref uuid="2827DBC7D9A04232B7DA6F1E1DD2D764" name="Usuarios"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="EAC3C565F54E4EA882D09BC30AABA82E" type="7">
+		<field_ref uuid="787F69409D0E4E89927227FDB79BD7F5" name="SucursalesID">
+			<table_ref uuid="243AB81D79A24B33B801698C63FD26FA" name="InventarioAjustesPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="EBC3D487AADD4F3AAE387CE613CD1AF8" type="1">
+		<field_ref uuid="9A971B943ABE46CF9E2EE17577BED818" name="AccesosID">
+			<table_ref uuid="B5AC65982DBA482CBA7EBD7B8A5F46CA" name="Accesos"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="F11E6016FFD547D48A59657FBB6431F7" type="1">
+		<field_ref uuid="4EEA630F38B74DB59B30C62F5555F119" name="ContabilidadDetalleID">
+			<table_ref uuid="CB125AB6FE464A7598C5B61E92807982" name="ContabilidadDetalle"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="F24D78158AAD4152BB42EA114471D5EE" type="7">
+		<field_ref uuid="492D35412D8141B592F0C7769D0F710F" name="Numero">
+			<table_ref uuid="D8CC77F429664D69909BAA252D88C428" name="ClientesFacturaPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="F52F566904464FB18BC9D60FB08D4674" type="7">
+		<field_ref uuid="FF1C2DBF39E646539C99C66E6282D9FE" name="Identificacion">
+			<table_ref uuid="322014D79CB74996AEEC0270EF71C047" name="ClientesFicha"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="FB43134FA3914095BA8972A379776B07" type="7">
+		<field_ref uuid="D2EBEB69CAD0410C9C333A08ACBED98E" name="EmpresaID">
+			<table_ref uuid="D8CC77F429664D69909BAA252D88C428" name="ClientesFacturaPrincipal"/>
+		</field_ref>
+	</index>
+</base>

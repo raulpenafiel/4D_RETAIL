@@ -1,0 +1,15 @@
+# Generado por 4D (se recrea al abrir/compilar)
+Data/
+Project/DerivedData/
+Logs/
+userPreferences.*/
+*.4DD
+*.4DIndx
+*.Match
+*.journal
+
+# Archivos locales de análisis (capturas, referencias)
+Temporal/
+
+# Configuración local de Claude Code
+.claude/settings.local.json

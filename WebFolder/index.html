@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Retail - Consulta Web</title>
+<style>
+ body{font-family:system-ui,sans-serif;margin:0;background:#f4f5f7;color:#222}
+ header{background:#1f3a5f;color:#fff;padding:14px 20px;font-size:18px}
+ main{padding:20px;max-width:1000px;margin:auto}
+ .card{background:#fff;border-radius:8px;padding:16px;margin-bottom:16px;box-shadow:0 1px 3px #0002}
+ input,button{padding:8px;font-size:14px} button{cursor:pointer}
+ table{width:100%;border-collapse:collapse} th,td{padding:6px 8px;border-bottom:1px solid #e3e3e3;text-align:left}
+ .tabs button{margin-right:6px}
+</style></head><body>
+<header>Retail &middot; Consulta Web (4D REST)</header>
+<main>
+ <div class="card" id="login">
+  <b>Acceso</b> (usuario como <code>usuario@dominio</code>)<br><br>
+  <input id="u" placeholder="usuario@dominio"> <input id="p" type="password" placeholder="Clave">
+  <button onclick="entrar()">Entrar</button> <span id="msg"></span>
+ </div>
+ <div class="card" id="app" style="display:none">
+  <div class="tabs">
+   <button onclick="cargar('InventarioFicha','Codigo,Nombre,Precio,Stock')">Productos</button>
+   <button onclick="cargar('ClientesFicha','Identificacion,Nombre,Telefono')">Clientes</button>
+   <button onclick="cargar('ClientesFacturaPrincipal','Numero,Fecha,Total,Estado','Fecha desc')">Facturas</button>
+   <button onclick="cargar('ProveedoresFicha','Identificacion,Nombre,Telefono')">Proveedores</button>
+   <button onclick="cargar('ProveedoresFacturaPrincipal','Numero,Fecha,Total,Estado','Fecha desc')">Compras</button>
+  </div><br><div id="out"></div>
+ </div>
+</main>
+<script>
+let auth="";
+async function entrar(){
+  auth="Basic "+btoa(unescape(encodeURIComponent(u.value+":"+p.value)));
+  const r=await fetch("/rest/InventarioFicha?$top=1",{headers:{Authorization:auth}});
+  if(r.ok){login.style.display="none";app.style.display="block";cargar('InventarioFicha','Codigo,Nombre,Precio,Stock');}
+  else msg.textContent="Acceso denegado";
+}
+async function cargar(dc,cols,orden){
+  let url="/rest/"+dc+"?$top=100&$attributes="+cols;
+  if(orden) url+="&$orderby="+encodeURIComponent(orden);
+  const r=await fetch(url,{headers:{Authorization:auth}});
+  const j=await r.json(); const c=cols.split(",");
+  // Se usa textContent (no innerHTML) para que los datos nunca se interpreten como HTML
+  const celda=(tag,txt)=>{const el=document.createElement(tag); el.textContent=String(txt??""); return el;};
+  const tabla=document.createElement("table");
+  const cab=document.createElement("tr");
+  c.forEach(x=>cab.appendChild(celda("th",x)));
+  tabla.appendChild(cab);
+  (j.__ENTITIES||[]).forEach(e=>{
+    const fila=document.createElement("tr");
+    c.forEach(x=>fila.appendChild(celda("td",e[x])));
+    tabla.appendChild(fila);
+  });
+  out.replaceChildren(tabla);
+}
+</script></body></html>

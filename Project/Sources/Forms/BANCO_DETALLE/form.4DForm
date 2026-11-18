@@ -1,0 +1,149 @@
+{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"windowSizingX": "fixed",
+	"windowSizingY": "fixed",
+	"windowTitle": "Bancos",
+	"events": [
+		"onLoad"
+	],
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"titulo": {
+					"type": "text",
+					"text": "Bancos - registro",
+					"left": 20,
+					"top": 8,
+					"width": 400,
+					"height": 26,
+					"fontWeight": "bold",
+					"fontSize": 16
+				},
+				"l_Banco": {
+					"type": "text",
+					"text": "Banco",
+					"left": 20,
+					"top": 52,
+					"width": 190,
+					"height": 20
+				},
+				"i_Banco": {
+					"type": "input",
+					"dataSource": "Form.entidad.Banco",
+					"dataSourceTypeHint": "text",
+					"left": 215,
+					"top": 50,
+					"width": 340,
+					"height": 22,
+					"enterable": true
+				},
+				"l_NumeroCuenta": {
+					"type": "text",
+					"text": "Número de cuenta",
+					"left": 20,
+					"top": 86,
+					"width": 190,
+					"height": 20
+				},
+				"i_NumeroCuenta": {
+					"type": "input",
+					"dataSource": "Form.entidad.NumeroCuenta",
+					"dataSourceTypeHint": "text",
+					"left": 215,
+					"top": 84,
+					"width": 200,
+					"height": 22,
+					"enterable": true
+				},
+				"l_Tipo": {
+					"type": "text",
+					"text": "Tipo de cuenta",
+					"left": 20,
+					"top": 120,
+					"width": 190,
+					"height": 20
+				},
+				"b_Tipo": {
+					"type": "button",
+					"text": "Elegir...",
+					"left": 215,
+					"top": 116,
+					"width": 90,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/b_Tipo.4dm"
+				},
+				"i_Tipo": {
+					"type": "input",
+					"dataSource": "Form.entidad.Tipo",
+					"dataSourceTypeHint": "text",
+					"left": 310,
+					"top": 118,
+					"width": 180,
+					"height": 22,
+					"enterable": false
+				},
+				"l_Moneda": {
+					"type": "text",
+					"text": "Moneda (ISO)",
+					"left": 20,
+					"top": 154,
+					"width": 190,
+					"height": 20
+				},
+				"i_Moneda": {
+					"type": "input",
+					"dataSource": "Form.entidad.Moneda",
+					"dataSourceTypeHint": "text",
+					"left": 215,
+					"top": 152,
+					"width": 60,
+					"height": 22,
+					"enterable": true
+				},
+				"c_Activo": {
+					"type": "checkbox",
+					"text": "Activo",
+					"dataSource": "Form.entidad.Activo",
+					"left": 215,
+					"top": 186,
+					"width": 120,
+					"height": 22
+				},
+				"bGuardar": {
+					"type": "button",
+					"text": "Guardar",
+					"left": 330,
+					"top": 240,
+					"width": 100,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bGuardar.4dm"
+				},
+				"bCancelar": {
+					"type": "button",
+					"text": "Cancelar",
+					"left": 440,
+					"top": 240,
+					"width": 100,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"action": "cancel"
+				}
+			}
+		}
+	],
+	"method": "method.4dm"
+}

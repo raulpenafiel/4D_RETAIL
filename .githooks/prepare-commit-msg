@@ -1,0 +1,6 @@
+#!/bin/sh
+# Agrega el nombre del equipo al final de cada mensaje de commit.
+# Se activa con: git config core.hooksPath .githooks
+MSG_FILE="$1"
+EQUIPO="${COMPUTERNAME:-$(hostname)}"
+grep -q "^Equipo: " "$MSG_FILE" || printf '\nEquipo: %s\n' "$EQUIPO" >> "$MSG_FILE"

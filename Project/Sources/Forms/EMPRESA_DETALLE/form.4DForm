@@ -1,0 +1,398 @@
+{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"windowSizingX": "fixed",
+	"windowSizingY": "fixed",
+	"windowTitle": "Empresa",
+	"events": [
+		"onLoad"
+	],
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"titulo": {
+					"type": "text",
+					"text": "Empresa - registro",
+					"left": 20,
+					"top": 8,
+					"width": 400,
+					"height": 26,
+					"fontWeight": "bold",
+					"fontSize": 16
+				},
+				"l_EmpresaID": {
+					"type": "text",
+					"text": "Código (máx. 5)",
+					"left": 20,
+					"top": 52,
+					"width": 190,
+					"height": 20
+				},
+				"i_EmpresaID": {
+					"type": "input",
+					"dataSource": "Form.entidad.EmpresaID",
+					"dataSourceTypeHint": "text",
+					"left": 215,
+					"top": 50,
+					"width": 80,
+					"height": 22,
+					"enterable": true
+				},
+				"l_RUC": {
+					"type": "text",
+					"text": "RUC",
+					"left": 20,
+					"top": 86,
+					"width": 190,
+					"height": 20
+				},
+				"i_RUC": {
+					"type": "input",
+					"dataSource": "Form.entidad.RUC",
+					"dataSourceTypeHint": "text",
+					"left": 215,
+					"top": 84,
+					"width": 340,
+					"height": 22,
+					"enterable": true
+				},
+				"l_RazonSocial": {
+					"type": "text",
+					"text": "Razón social",
+					"left": 20,
+					"top": 120,
+					"width": 190,
+					"height": 20
+				},
+				"i_RazonSocial": {
+					"type": "input",
+					"dataSource": "Form.entidad.RazonSocial",
+					"dataSourceTypeHint": "text",
+					"left": 215,
+					"top": 118,
+					"width": 340,
+					"height": 22,
+					"enterable": true
+				},
+				"l_NombreComercial": {
+					"type": "text",
+					"text": "Nombre comercial",
+					"left": 20,
+					"top": 154,
+					"width": 190,
+					"height": 20
+				},
+				"i_NombreComercial": {
+					"type": "input",
+					"dataSource": "Form.entidad.NombreComercial",
+					"dataSourceTypeHint": "text",
+					"left": 215,
+					"top": 152,
+					"width": 340,
+					"height": 22,
+					"enterable": true
+				},
+				"l_Direccion": {
+					"type": "text",
+					"text": "Dirección",
+					"left": 20,
+					"top": 188,
+					"width": 190,
+					"height": 20
+				},
+				"i_Direccion": {
+					"type": "input",
+					"dataSource": "Form.entidad.Direccion",
+					"dataSourceTypeHint": "text",
+					"left": 215,
+					"top": 186,
+					"width": 340,
+					"height": 22,
+					"enterable": true
+				},
+				"l_Telefono": {
+					"type": "text",
+					"text": "Teléfono",
+					"left": 20,
+					"top": 222,
+					"width": 190,
+					"height": 20
+				},
+				"i_Telefono": {
+					"type": "input",
+					"dataSource": "Form.entidad.Telefono",
+					"dataSourceTypeHint": "text",
+					"left": 215,
+					"top": 220,
+					"width": 340,
+					"height": 22,
+					"enterable": true
+				},
+				"l_Email": {
+					"type": "text",
+					"text": "Email",
+					"left": 20,
+					"top": 256,
+					"width": 190,
+					"height": 20
+				},
+				"i_Email": {
+					"type": "input",
+					"dataSource": "Form.entidad.Email",
+					"dataSourceTypeHint": "text",
+					"left": 215,
+					"top": 254,
+					"width": 340,
+					"height": 22,
+					"enterable": true
+				},
+				"l_Dominio": {
+					"type": "text",
+					"text": "Dominio *",
+					"left": 20,
+					"top": 290,
+					"width": 190,
+					"height": 20
+				},
+				"i_Dominio": {
+					"type": "input",
+					"dataSource": "Form.entidad.Dominio",
+					"dataSourceTypeHint": "text",
+					"left": 215,
+					"top": 288,
+					"width": 340,
+					"height": 22,
+					"enterable": true
+				},
+				"l_SecuencialAsiento": {
+					"type": "text",
+					"text": "Último asiento",
+					"left": 20,
+					"top": 324,
+					"width": 190,
+					"height": 20
+				},
+				"i_SecuencialAsiento": {
+					"type": "input",
+					"dataSource": "Form.entidad.SecuencialAsiento",
+					"dataSourceTypeHint": "number",
+					"left": 215,
+					"top": 322,
+					"width": 150,
+					"height": 22,
+					"enterable": false
+				},
+				"c_Activo": {
+					"type": "checkbox",
+					"text": "Activo",
+					"dataSource": "Form.entidad.Activo",
+					"left": 215,
+					"top": 356,
+					"width": 120,
+					"height": 22
+				},
+				"s_Ctas": {
+					"type": "text",
+					"text": "Cuentas contables para asientos automáticos",
+					"left": 580,
+					"top": 54,
+					"width": 400,
+					"height": 20,
+					"fontWeight": "bold"
+				},
+				"l_CtaCaja": {
+					"type": "text",
+					"text": "Caja / bancos",
+					"left": 580,
+					"top": 82,
+					"width": 190,
+					"height": 20
+				},
+				"i_CtaCaja": {
+					"type": "input",
+					"dataSource": "Form.entidad.CtaCaja",
+					"dataSourceTypeHint": "text",
+					"left": 775,
+					"top": 80,
+					"width": 150,
+					"height": 22,
+					"enterable": true
+				},
+				"l_CtaCxC": {
+					"type": "text",
+					"text": "Cuentas por cobrar",
+					"left": 580,
+					"top": 116,
+					"width": 190,
+					"height": 20
+				},
+				"i_CtaCxC": {
+					"type": "input",
+					"dataSource": "Form.entidad.CtaCxC",
+					"dataSourceTypeHint": "text",
+					"left": 775,
+					"top": 114,
+					"width": 150,
+					"height": 22,
+					"enterable": true
+				},
+				"l_CtaVentas": {
+					"type": "text",
+					"text": "Ventas",
+					"left": 580,
+					"top": 150,
+					"width": 190,
+					"height": 20
+				},
+				"i_CtaVentas": {
+					"type": "input",
+					"dataSource": "Form.entidad.CtaVentas",
+					"dataSourceTypeHint": "text",
+					"left": 775,
+					"top": 148,
+					"width": 150,
+					"height": 22,
+					"enterable": true
+				},
+				"l_CtaIVAVentas": {
+					"type": "text",
+					"text": "IVA en ventas",
+					"left": 580,
+					"top": 184,
+					"width": 190,
+					"height": 20
+				},
+				"i_CtaIVAVentas": {
+					"type": "input",
+					"dataSource": "Form.entidad.CtaIVAVentas",
+					"dataSourceTypeHint": "text",
+					"left": 775,
+					"top": 182,
+					"width": 150,
+					"height": 22,
+					"enterable": true
+				},
+				"l_CtaInventario": {
+					"type": "text",
+					"text": "Inventario",
+					"left": 580,
+					"top": 218,
+					"width": 190,
+					"height": 20
+				},
+				"i_CtaInventario": {
+					"type": "input",
+					"dataSource": "Form.entidad.CtaInventario",
+					"dataSourceTypeHint": "text",
+					"left": 775,
+					"top": 216,
+					"width": 150,
+					"height": 22,
+					"enterable": true
+				},
+				"l_CtaCostoVentas": {
+					"type": "text",
+					"text": "Costo de ventas",
+					"left": 580,
+					"top": 252,
+					"width": 190,
+					"height": 20
+				},
+				"i_CtaCostoVentas": {
+					"type": "input",
+					"dataSource": "Form.entidad.CtaCostoVentas",
+					"dataSourceTypeHint": "text",
+					"left": 775,
+					"top": 250,
+					"width": 150,
+					"height": 22,
+					"enterable": true
+				},
+				"l_CtaCxP": {
+					"type": "text",
+					"text": "Cuentas por pagar",
+					"left": 580,
+					"top": 286,
+					"width": 190,
+					"height": 20
+				},
+				"i_CtaCxP": {
+					"type": "input",
+					"dataSource": "Form.entidad.CtaCxP",
+					"dataSourceTypeHint": "text",
+					"left": 775,
+					"top": 284,
+					"width": 150,
+					"height": 22,
+					"enterable": true
+				},
+				"l_CtaIVACompras": {
+					"type": "text",
+					"text": "IVA en compras",
+					"left": 580,
+					"top": 320,
+					"width": 190,
+					"height": 20
+				},
+				"i_CtaIVACompras": {
+					"type": "input",
+					"dataSource": "Form.entidad.CtaIVACompras",
+					"dataSourceTypeHint": "text",
+					"left": 775,
+					"top": 318,
+					"width": 150,
+					"height": 22,
+					"enterable": true
+				},
+				"l_CtaAjusteInventario": {
+					"type": "text",
+					"text": "Ajustes de inventario",
+					"left": 580,
+					"top": 354,
+					"width": 190,
+					"height": 20
+				},
+				"i_CtaAjusteInventario": {
+					"type": "input",
+					"dataSource": "Form.entidad.CtaAjusteInventario",
+					"dataSourceTypeHint": "text",
+					"left": 775,
+					"top": 352,
+					"width": 150,
+					"height": 22,
+					"enterable": true
+				},
+				"bGuardar": {
+					"type": "button",
+					"text": "Guardar",
+					"left": 330,
+					"top": 410,
+					"width": 100,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bGuardar.4dm"
+				},
+				"bCancelar": {
+					"type": "button",
+					"text": "Cancelar",
+					"left": 440,
+					"top": 410,
+					"width": 100,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"action": "cancel"
+				}
+			}
+		}
+	],
+	"method": "method.4dm"
+}
