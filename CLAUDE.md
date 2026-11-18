@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Qué es
 
-ERP retail multiempresa en **4D 21.x, modo proyecto** (`Project/4D_RETAIL_IA.4DProject`), escrito en lenguaje 4D con ORDA. El código, los nombres y los mensajes están en español. Corre en 4D Server + 4D Remote y tiene una consulta web vía REST (`WebFolder/index.html`).
+ERP retail multiempresa en **4D 21.x, modo proyecto** (`Project/4D_RETAIL.4DProject`), escrito en lenguaje 4D con ORDA. El código, los nombres y los mensajes están en español. Corre en 4D Server + 4D Remote y tiene una consulta web vía REST (`WebFolder/index.html`).
 
 La memoria del proyecto está en `.claude/memory/` (índice en `MEMORY.md`). **`project_modelo_datos_001.md` es la referencia del modelo de datos** y `project_decisiones_001.md` explica por qué se diseñó así. Actualízalas si cambias el modelo.
 
@@ -18,6 +18,13 @@ No hay build, lint ni tests por línea de comandos. Se abre el `.4DProject` en 4
 - Los métodos de proyecto empiezan con la línea `//%attributes = {}`. Hay que conservarla.
 - Los métodos de formulario y de objeto **deben declararse en el JSON**, o 4D no los ejecuta (Check Syntax no lo detecta). Raíz del formulario: `"method": "method.4dm"` y `"events": [...]` con cada `On X` que use el método. Cada objeto con `ObjectMethods/<objeto>.4dm`: `"method": "ObjectMethods/<objeto>.4dm"` y sus `"events"` (botón `onClick`, entrada `onDataChange`, lista `onDoubleClick`).
 - Para renombrar, usa un script y termina con un grep de los nombres antiguos que dé 0 resultados (preferencia del usuario).
+
+## Git
+
+Repositorio en GitHub, rama principal `main`. Se usa para abrir el proyecto en otros equipos.
+- **Cada commit lleva el nombre del equipo**: el hook `.githooks/prepare-commit-msg` agrega `Equipo: <COMPUTERNAME>` al final del mensaje. Se activa una vez por equipo, después de clonar: `git config core.hooksPath .githooks`.
+- No se suben (`.gitignore`): `Data/`, `Project/DerivedData/`, `Logs/`, `userPreferences.*/` y `Temporal/`. En otro equipo, 4D pide crear un archivo de datos nuevo y `Seg_Bootstrap` inicializa la base.
+- `.gitattributes` con `* -text`: git no cambia los finales de línea de los fuentes de 4D.
 
 ## Modelo de datos (resumen)
 
