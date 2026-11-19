@@ -16,9 +16,9 @@
 		<field name="Activo" uuid="3F2D268B77054755827867DE250DB1A6" type="1" id="19"/>
 		<primary_key field_name="EmpresaID" field_uuid="A786753C4CD840169AFD043AC061A1B7"/>
 		<table_extra>
-			<editor_table_info displayable_fields_count="11">
+			<editor_table_info displayable_fields_count="12">
 				<color red="255" green="255" blue="255" alpha="0"/>
-				<coordinates left="40" top="40" width="160" height="288"/>
+				<coordinates left="40" top="40" width="161" height="296"/>
 			</editor_table_info>
 		</table_extra>
 	</table>
