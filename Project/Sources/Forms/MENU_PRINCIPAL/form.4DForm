@@ -155,10 +155,22 @@
 					"height": 20,
 					"fontWeight": "bold"
 				},
+				"bPLANCUENTA": {
+					"type": "button",
+					"text": "Plan de cuentas",
+					"left": 150,
+					"top": 310,
+					"width": 160,
+					"height": 50,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bPLANCUENTA.4dm"
+				},
 				"bCONTABILIDAD": {
 					"type": "button",
 					"text": "Asientos",
-					"left": 150,
+					"left": 320,
 					"top": 310,
 					"width": 160,
 					"height": 50,
@@ -170,7 +182,7 @@
 				"bBANCO": {
 					"type": "button",
 					"text": "Bancos",
-					"left": 320,
+					"left": 490,
 					"top": 310,
 					"width": 160,
 					"height": 50,
@@ -236,11 +248,32 @@
 					],
 					"method": "ObjectMethods/bUSUARIO.4dm"
 				},
+				"g5": {
+					"type": "text",
+					"text": "Parámetros del Sistema",
+					"left": 30,
+					"top": 458,
+					"width": 115,
+					"height": 36,
+					"fontWeight": "bold"
+				},
+				"bPARAMCONTABLE": {
+					"type": "button",
+					"text": "Parámetros Contables",
+					"left": 150,
+					"top": 450,
+					"width": 160,
+					"height": 50,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bPARAMCONTABLE.4dm"
+				},
 				"bSalir": {
 					"type": "button",
 					"text": "Salir",
 					"left": 710,
-					"top": 470,
+					"top": 540,
 					"width": 110,
 					"height": 26,
 					"events": [

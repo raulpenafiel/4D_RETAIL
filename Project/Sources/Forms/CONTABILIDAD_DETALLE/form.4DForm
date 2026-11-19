@@ -154,6 +154,18 @@
 					],
 					"method": "ObjectMethods/bQuitar.4dm"
 				},
+				"bCuenta": {
+					"type": "button",
+					"text": "Elegir cuenta...",
+					"left": 260,
+					"top": 445,
+					"width": 130,
+					"height": 26,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/bCuenta.4dm"
+				},
 				"lDeb": {
 					"type": "text",
 					"text": "Total debe:",

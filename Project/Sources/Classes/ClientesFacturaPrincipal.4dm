@@ -7,6 +7,7 @@ Class extends DataClass
 exposed Function emitir($cab : Object; $lineas : Collection) : Object
 	var $res; $l; $r; $mr; $ra : Object
 	var $emp : cs.EmpresasEntity
+	var $par : cs.ParametrosContablesEntity
 	var $cli : cs.ClientesFichaEntity
 	var $suc : cs.SucursalesEntity
 	var $prod : cs.InventarioFichaEntity
@@ -29,6 +30,13 @@ exposed Function emitir($cab : Object; $lineas : Collection) : Object
 	$cli:=ds.ClientesFicha.get(Num($cab.clientesID))
 	If (($cli=Null) || ($cli.EmpresaID#$emp.EmpresaID))
 		$res.mensaje:="Seleccione un cliente válido."
+		return $res
+	End if
+
+	//Cuentas de los asientos automáticos (Parámetros del Sistema > Parámetros Contables)
+	$par:=$emp.parametrosContables.first()
+	If ($par=Null)
+		$res.mensaje:="Configure los Parámetros Contables de la empresa (cuentas para asientos automáticos)."
 		return $res
 	End if
 
@@ -116,16 +124,16 @@ exposed Function emitir($cab : Object; $lineas : Collection) : Object
 	$f.Total:=$f.Subtotal+$f.Impuesto
 
 	//Asiento: Caja (o CxC si es a crédito) contra Ventas + IVA; y Costo de ventas contra Inventario
-	$ctaCobro:=$emp.CtaCaja
+	$ctaCobro:=$par.CtaCaja
 	If ($f.FormaPago="CREDITO")
-		$ctaCobro:=$emp.CtaCxC
+		$ctaCobro:=$par.CtaCxC
 	End if
 	$asiento:=New collection
 	$asiento.push(New object("cuenta"; $ctaCobro; "debito"; $f.Total; "credito"; 0; "referencia"; $f.Numero))
-	$asiento.push(New object("cuenta"; $emp.CtaVentas; "debito"; 0; "credito"; $f.Subtotal; "referencia"; $f.Numero))
-	$asiento.push(New object("cuenta"; $emp.CtaIVAVentas; "debito"; 0; "credito"; $f.Impuesto; "referencia"; $f.Numero))
-	$asiento.push(New object("cuenta"; $emp.CtaCostoVentas; "debito"; $costo; "credito"; 0; "referencia"; $f.Numero))
-	$asiento.push(New object("cuenta"; $emp.CtaInventario; "debito"; 0; "credito"; $costo; "referencia"; $f.Numero))
+	$asiento.push(New object("cuenta"; $par.CtaVentas; "debito"; 0; "credito"; $f.Subtotal; "referencia"; $f.Numero))
+	$asiento.push(New object("cuenta"; $par.CtaIVAVentas; "debito"; 0; "credito"; $f.Impuesto; "referencia"; $f.Numero))
+	$asiento.push(New object("cuenta"; $par.CtaCostoVentas; "debito"; $costo; "credito"; 0; "referencia"; $f.Numero))
+	$asiento.push(New object("cuenta"; $par.CtaInventario; "debito"; 0; "credito"; $costo; "referencia"; $f.Numero))
 	$ra:=ds.ContabilidadPrincipal.registrar(New object("empresaID"; $emp.EmpresaID; "sucursalID"; $suc.SucursalesID; \
 	"fecha"; $f.Fecha; "concepto"; "Factura "+$f.Numero+" - "+$cli.Nombre; "origen"; "FACTURA_CLIENTE"); $asiento)
 	If (Not($ra.ok))

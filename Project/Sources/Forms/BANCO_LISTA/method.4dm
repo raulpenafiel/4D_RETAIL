@@ -1,6 +1,6 @@
 Case of
 	: (Form event code=On Load)
-		Form.tabla:="FichaBancos"
+		Form.tabla:="BancosFicha"
 		Form.modulo:="BANCO"
 		Form.campoBusqueda:="Banco"
 		Form.orden:="Banco"

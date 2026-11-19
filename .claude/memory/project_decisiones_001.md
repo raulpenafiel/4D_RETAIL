@@ -28,3 +28,13 @@
 - **`index.html` usa `textContent`.** Motivo: XSS con nombres de clientes o productos.
 - **El bootstrap usa `validar()` y `Val_Guardar`**, y vuelve a revisar que la base esté vacía dentro de la transacción. Motivo: las reglas estaban duplicadas, los `save()` no se revisaban y dos estaciones podían inicializar a la vez.
 - **Clave con confirmación y mínimo 6 caracteres.** El hash se asigna después de `validar()`.
+
+## 2026-11-18 — Plan de cuentas y Parámetros Contables
+- **Tabla `ParametrosContables` (una fila por empresa)** con la máscara, los grupos principales y las cuentas `Cta*`, que **se quitaron de `Empresas`**. Motivo: pedido del usuario; los parámetros contables van en "Parámetros del Sistema", no en la ficha de la empresa.
+- **Máscara con 9 por dígito y un solo separador** (`.` o `-`). El código guarda los separadores; `Nivel` y `Grupo` se calculan al validar.
+- **La cuenta superior debe existir y no ser de movimiento**; no se cambia el código de una cuenta con subcuentas, asientos o usada en los parámetros.
+- **Las `Cta*` deben ser cuentas activas de movimiento.** Si la empresa no tiene parámetros, facturas, compras y ajustes no se registran.
+- **`Seg_Modulos` admite `formulario`** para módulos sin lista (PARAMCONTABLE abre `PARAMCONTABLE_DETALLE`).
+- **`Seg_Bootstrap` crea los parámetros y un plan básico** (`Cta_PlanBase`) con las mismas cuentas de ejemplo que antes.
+- **`FichaBancos` se renombró a `BancosFicha`** (mismo uuid en el catálogo), para seguir el patrón `<Entidad>Ficha`.
+- **Las cuentas de todo asiento se validan en `ContabilidadPrincipal.registrar`** con `Cta_Validar` (regla única, sin `<>Usuario`). Motivo: un solo punto por donde pasan asientos manuales y automáticos. Al anular no se revalida: el asiento solo se marca ANULADO.

@@ -7,6 +7,7 @@ Class extends DataClass
 exposed Function registrar($cab : Object; $lineas : Collection) : Object
 	var $res; $l; $r; $mr; $ra : Object
 	var $emp : cs.EmpresasEntity
+	var $par : cs.ParametrosContablesEntity
 	var $suc : cs.SucursalesEntity
 	var $a : cs.InventarioAjustesPrincipalEntity
 	var $asiento : Collection
@@ -25,6 +26,13 @@ exposed Function registrar($cab : Object; $lineas : Collection) : Object
 	$suc:=ds.Sucursales.get(Num($cab.sucursalID))
 	If (($emp=Null) || ($suc=Null) || ($suc.EmpresaID#$emp.EmpresaID))
 		$res.mensaje:="Empresa o sucursal inválida."
+		return $res
+	End if
+
+	//Cuentas de los asientos automáticos (Parámetros del Sistema > Parámetros Contables)
+	$par:=$emp.parametrosContables.first()
+	If ($par=Null)
+		$res.mensaje:="Configure los Parámetros Contables de la empresa (cuentas para asientos automáticos)."
 		return $res
 	End if
 
@@ -65,12 +73,12 @@ exposed Function registrar($cab : Object; $lineas : Collection) : Object
 
 	$asiento:=New collection
 	If ($valE>0)
-		$asiento.push(New object("cuenta"; $emp.CtaInventario; "debito"; $valE; "credito"; 0; "referencia"; "Ajuste entrada"))
-		$asiento.push(New object("cuenta"; $emp.CtaAjusteInventario; "debito"; 0; "credito"; $valE; "referencia"; "Ajuste entrada"))
+		$asiento.push(New object("cuenta"; $par.CtaInventario; "debito"; $valE; "credito"; 0; "referencia"; "Ajuste entrada"))
+		$asiento.push(New object("cuenta"; $par.CtaAjusteInventario; "debito"; 0; "credito"; $valE; "referencia"; "Ajuste entrada"))
 	End if
 	If ($valS>0)
-		$asiento.push(New object("cuenta"; $emp.CtaAjusteInventario; "debito"; $valS; "credito"; 0; "referencia"; "Ajuste salida"))
-		$asiento.push(New object("cuenta"; $emp.CtaInventario; "debito"; 0; "credito"; $valS; "referencia"; "Ajuste salida"))
+		$asiento.push(New object("cuenta"; $par.CtaAjusteInventario; "debito"; $valS; "credito"; 0; "referencia"; "Ajuste salida"))
+		$asiento.push(New object("cuenta"; $par.CtaInventario; "debito"; 0; "credito"; $valS; "referencia"; "Ajuste salida"))
 	End if
 	If ($asiento.length>0)
 		$ra:=ds.ContabilidadPrincipal.registrar(New object("empresaID"; $emp.EmpresaID; "sucursalID"; $suc.SucursalesID; \

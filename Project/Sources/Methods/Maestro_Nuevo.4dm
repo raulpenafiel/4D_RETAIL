@@ -18,7 +18,10 @@ Case of
 	: (Form.tabla="InventarioFicha")
 		$e.PorcentajeIVA:=15
 		$e.Unidad:="UND"
-	: (Form.tabla="FichaBancos")
+	: (Form.tabla="BancosFicha")
 		$e.Moneda:="USD"
+	: (Form.tabla="PlanCuentas")
+		$e.Movimiento:=True
+		$e.Naturaleza:=""  //validar() la toma del grupo si queda vacía
 End case
 Maestro_Abrir($e)

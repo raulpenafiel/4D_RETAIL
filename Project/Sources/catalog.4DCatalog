@@ -12,15 +12,6 @@
 		<field name="Email" uuid="BF8C43FF70BD478A90DD121035735330" type="10" limiting_length="100" id="7"/>
 		<field name="Dominio" uuid="82B43ACE875C4B5AB6BE422220A18AAC" type="10" limiting_length="100" id="8"/>
 		<field name="SecuencialAsiento" uuid="8DC3FA94D553486391D6DDD1E80BE4CC" type="4" id="9"/>
-		<field name="CtaCaja" uuid="5F0A09A85CE948E0BAF5B9732085FC6E" type="10" limiting_length="20" id="10"/>
-		<field name="CtaCxC" uuid="CCB6F265F92F426BBC018BDF63646A34" type="10" limiting_length="20" id="11"/>
-		<field name="CtaVentas" uuid="456715955D134F66AF8695DF2DAFBEE7" type="10" limiting_length="20" id="12"/>
-		<field name="CtaIVAVentas" uuid="B2497654E9AF42EC89AAABAA642603C8" type="10" limiting_length="20" id="13"/>
-		<field name="CtaInventario" uuid="4A35F5F8F4CB4FAF808C1F34B8447AB7" type="10" limiting_length="20" id="14"/>
-		<field name="CtaCostoVentas" uuid="5BD6A6A2435C46818653EA850A5A4AFD" type="10" limiting_length="20" id="15"/>
-		<field name="CtaCxP" uuid="A178C7A8C7C84E3AAD5157032A5830AA" type="10" limiting_length="20" id="16"/>
-		<field name="CtaIVACompras" uuid="438FD0095CA9488C956FD57E2FA8E42D" type="10" limiting_length="20" id="17"/>
-		<field name="CtaAjusteInventario" uuid="330B335EBAA74043935E50901DBF651E" type="10" limiting_length="20" id="18"/>
 		<field name="Activo" uuid="3F2D268B77054755827867DE250DB1A6" type="1" id="19"/>
 		<primary_key field_name="EmpresaID" field_uuid="A786753C4CD840169AFD043AC061A1B7"/>
 		<table_extra>
@@ -323,7 +314,7 @@
 			</editor_table_info>
 		</table_extra>
 	</table>
-	<table name="FichaBancos" uuid="612C3E86ADCC4B76ACF6AB827842A70D" id="17">
+	<table name="BancosFicha" uuid="612C3E86ADCC4B76ACF6AB827842A70D" id="17">
 		<field name="BancosID" uuid="AC635EE491884873B8EBF3533506E489" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
 		<field name="EmpresaID" uuid="3AB36251C0EE4926B56ED79B0304B764" type="10" limiting_length="5" id="2"/>
 		<field name="Banco" uuid="466E0754C86B4DC081AE40479A4EA53F" type="10" limiting_length="100" id="3"/>
@@ -336,6 +327,51 @@
 			<editor_table_info fields_ordering="1" displayable_fields_count="7">
 				<color red="255" green="255" blue="255" alpha="0"/>
 				<coordinates left="840" top="680" width="160" height="260"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="PlanCuentas" uuid="47EE9356D3914463B74224E4D4FF180E" id="18">
+		<field name="PlanCuentasID" uuid="03677DCB7A7B4944BCCB961FA9D255DF" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="EmpresaID" uuid="85CD165878B64949BFC036817EC23D4B" type="10" limiting_length="5" id="2"/>
+		<field name="Codigo" uuid="69EFDF68E0034A1AA0B80FB34874E770" type="10" limiting_length="30" id="3"/>
+		<field name="Nombre" uuid="623C0E2D641340329A86CFE2E20E6CFB" type="10" limiting_length="150" id="4"/>
+		<field name="Nivel" uuid="D38DA89148D645DCB6DD459ADBAFDB8E" type="4" id="5"/>
+		<field name="Grupo" uuid="91370016E4D64B9A91AD41867B0E6F4B" type="4" id="6"/>
+		<field name="Naturaleza" uuid="488FE5DDCBB94E3DABEEDBC8582DB773" type="10" limiting_length="10" id="7"/>
+		<field name="Movimiento" uuid="4D2739EB272C40D4A020B98F5CF231E9" type="1" id="8"/>
+		<field name="Activo" uuid="C4EF13901D644702BD998C15CFA45005" type="1" id="9"/>
+		<primary_key field_name="PlanCuentasID" field_uuid="03677DCB7A7B4944BCCB961FA9D255DF"/>
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="9">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="1040" top="680" width="160" height="260"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="ParametrosContables" uuid="BF5C9A86C5224E2CBD28559F8485CACC" id="19">
+		<field name="ParametrosContablesID" uuid="61B4F9645F484AFAA13752CB33833CDD" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="EmpresaID" uuid="CA88138DD7FE42088709EB2F4BBA0F84" type="10" limiting_length="5" id="2"/>
+		<field name="Mascara" uuid="89459DD81B3C4CC1B5B7EB82C11F8715" type="10" limiting_length="30" id="3"/>
+		<field name="GrupoActivo" uuid="6F080345DEA946E8B71B60DE55CE3C91" type="4" id="4"/>
+		<field name="GrupoPasivo" uuid="E721EC3E4E5740128EE584D0CD763439" type="4" id="5"/>
+		<field name="GrupoPatrimonio" uuid="09C8FFEEA37D44DBB11D887FE125139A" type="4" id="6"/>
+		<field name="GrupoIngresos" uuid="E3735B43262043FA8147A44B688BEF36" type="4" id="7"/>
+		<field name="GrupoCostos" uuid="02B9E381268F41ACB723899BD887FD13" type="4" id="8"/>
+		<field name="GrupoGastos" uuid="ABC33F057FFE41749846149A75072A00" type="4" id="9"/>
+		<field name="CtaCaja" uuid="9155D2AB027F4EE9854EB48C580C315B" type="10" limiting_length="30" id="10"/>
+		<field name="CtaCxC" uuid="8292B8E9294B45928000B56FCA50EAEC" type="10" limiting_length="30" id="11"/>
+		<field name="CtaVentas" uuid="65D5EE6863E9460CAA465FC3EC0856FD" type="10" limiting_length="30" id="12"/>
+		<field name="CtaIVAVentas" uuid="9AAE71470CE842F2A2D3D3DF07878C78" type="10" limiting_length="30" id="13"/>
+		<field name="CtaInventario" uuid="1121DB8F33FD4CB6AC89D6EDCD1AAA38" type="10" limiting_length="30" id="14"/>
+		<field name="CtaCostoVentas" uuid="2659A75DAA6D4252BC7131C878937144" type="10" limiting_length="30" id="15"/>
+		<field name="CtaCxP" uuid="67A326E8FDA74098BEE943FFA10FF76F" type="10" limiting_length="30" id="16"/>
+		<field name="CtaIVACompras" uuid="1B1A04A23A654E188C82719DDF58C238" type="10" limiting_length="30" id="17"/>
+		<field name="CtaAjusteInventario" uuid="D5B9261C206D4B45AB806E72A2FD594D" type="10" limiting_length="30" id="18"/>
+		<primary_key field_name="ParametrosContablesID" field_uuid="61B4F9645F484AFAA13752CB33833CDD"/>
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="18">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="1240" top="680" width="160" height="260"/>
 			</editor_table_info>
 		</table_extra>
 	</table>
@@ -522,7 +558,7 @@
 	<relation uuid="498CEC61385242719932521F6A5CB7D8" name_Nto1="empresa" name_1toN="bancos" foreign_key="true" state="1">
 		<related_field kind="source">
 			<field_ref uuid="3AB36251C0EE4926B56ED79B0304B764" name="EmpresaID">
-				<table_ref uuid="612C3E86ADCC4B76ACF6AB827842A70D" name="FichaBancos"/>
+				<table_ref uuid="612C3E86ADCC4B76ACF6AB827842A70D" name="BancosFicha"/>
 			</field_ref>
 		</related_field>
 		<related_field kind="destination">
@@ -855,6 +891,30 @@
 			</field_ref>
 		</related_field>
 	</relation>
+	<relation uuid="4E43E6886CC24A6BAE4D46A9FE972414" name_Nto1="empresa" name_1toN="planCuentas" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="85CD165878B64949BFC036817EC23D4B" name="EmpresaID">
+				<table_ref uuid="47EE9356D3914463B74224E4D4FF180E" name="PlanCuentas"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="A786753C4CD840169AFD043AC061A1B7" name="EmpresaID">
+				<table_ref uuid="F0AD2D32DF9A47CB97AFC0C728FED746" name="Empresas"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="8056A8F310014F09B749D80413DFBC15" name_Nto1="empresa" name_1toN="parametrosContables" foreign_key="true" state="1">
+		<related_field kind="source">
+			<field_ref uuid="CA88138DD7FE42088709EB2F4BBA0F84" name="EmpresaID">
+				<table_ref uuid="BF5C9A86C5224E2CBD28559F8485CACC" name="ParametrosContables"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="A786753C4CD840169AFD043AC061A1B7" name="EmpresaID">
+				<table_ref uuid="F0AD2D32DF9A47CB97AFC0C728FED746" name="Empresas"/>
+			</field_ref>
+		</related_field>
+	</relation>
 	<index kind="regular" uuid="04645F9EB6F549D49914C1632925A439" type="7">
 		<field_ref uuid="C24DB445C3A44C4ABAFC906B88042705" name="EmpresaID">
 			<table_ref uuid="243AB81D79A24B33B801698C63FD26FA" name="InventarioAjustesPrincipal"/>
@@ -972,7 +1032,7 @@
 	</index>
 	<index kind="regular" uuid="3CC1AAA1B3F34E3DBCD81DD8D432C2A1" type="7">
 		<field_ref uuid="E42A671177DB42949828C1958C230344" name="NumeroCuenta">
-			<table_ref uuid="612C3E86ADCC4B76ACF6AB827842A70D" name="FichaBancos"/>
+			<table_ref uuid="612C3E86ADCC4B76ACF6AB827842A70D" name="BancosFicha"/>
 		</field_ref>
 	</index>
 	<index kind="regular" uuid="3E977867111D473BA53D88203C372DFC" type="7">
@@ -1008,6 +1068,11 @@
 	<index kind="regular" uuid="46483A535131469B8F3D2463C4884D35" type="7">
 		<field_ref uuid="2E2B7E966BC14008957DF2B210368FFA" name="SucursalesID">
 			<table_ref uuid="D8CC77F429664D69909BAA252D88C428" name="ClientesFacturaPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="4EFBB78F2015460B914AF55F11622F60" type="7">
+		<field_ref uuid="69EFDF68E0034A1AA0B80FB34874E770" name="Codigo">
+			<table_ref uuid="47EE9356D3914463B74224E4D4FF180E" name="PlanCuentas"/>
 		</field_ref>
 	</index>
 	<index kind="regular" uuid="51D069D574394C33AA21A95F50FB5EDA" type="7">
@@ -1048,6 +1113,16 @@
 	<index kind="regular" uuid="784E65A407A14B18A7E82F5A70DDD6E1" type="7">
 		<field_ref uuid="5E983FDBF5844CDCB679263D22CBC769" name="ContabilidadID">
 			<table_ref uuid="D8CC77F429664D69909BAA252D88C428" name="ClientesFacturaPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="79136F1861A64E128C8AACA89E057109" type="1">
+		<field_ref uuid="61B4F9645F484AFAA13752CB33833CDD" name="ParametrosContablesID">
+			<table_ref uuid="BF5C9A86C5224E2CBD28559F8485CACC" name="ParametrosContables"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="7BA15C8F801847FE9006EFF2E0D8F688" type="7">
+		<field_ref uuid="CA88138DD7FE42088709EB2F4BBA0F84" name="EmpresaID">
+			<table_ref uuid="BF5C9A86C5224E2CBD28559F8485CACC" name="ParametrosContables"/>
 		</field_ref>
 	</index>
 	<index kind="regular" uuid="7BB7429DBA7345218CCD0E3C69039AC4" type="7">
@@ -1112,7 +1187,7 @@
 	</index>
 	<index kind="regular" uuid="972D3F3C29AA41549D2A4C621F8CF69A" type="7">
 		<field_ref uuid="3AB36251C0EE4926B56ED79B0304B764" name="EmpresaID">
-			<table_ref uuid="612C3E86ADCC4B76ACF6AB827842A70D" name="FichaBancos"/>
+			<table_ref uuid="612C3E86ADCC4B76ACF6AB827842A70D" name="BancosFicha"/>
 		</field_ref>
 	</index>
 	<index kind="regular" uuid="9EFBA74E114E40539F34873A71B1ACF2" type="7">
@@ -1122,7 +1197,7 @@
 	</index>
 	<index kind="regular" unique_keys="true" uuid="A052951D00CD4CA48873D2092E46E681" type="1">
 		<field_ref uuid="AC635EE491884873B8EBF3533506E489" name="BancosID">
-			<table_ref uuid="612C3E86ADCC4B76ACF6AB827842A70D" name="FichaBancos"/>
+			<table_ref uuid="612C3E86ADCC4B76ACF6AB827842A70D" name="BancosFicha"/>
 		</field_ref>
 	</index>
 	<index kind="regular" uuid="A3228061D44848598985F0FB78CC802D" type="7">
@@ -1240,6 +1315,11 @@
 			<table_ref uuid="2827DBC7D9A04232B7DA6F1E1DD2D764" name="Usuarios"/>
 		</field_ref>
 	</index>
+	<index kind="regular" unique_keys="true" uuid="E9DEB9793B92474A834048FFCF657A3C" type="1">
+		<field_ref uuid="03677DCB7A7B4944BCCB961FA9D255DF" name="PlanCuentasID">
+			<table_ref uuid="47EE9356D3914463B74224E4D4FF180E" name="PlanCuentas"/>
+		</field_ref>
+	</index>
 	<index kind="regular" uuid="EAC3C565F54E4EA882D09BC30AABA82E" type="7">
 		<field_ref uuid="787F69409D0E4E89927227FDB79BD7F5" name="SucursalesID">
 			<table_ref uuid="243AB81D79A24B33B801698C63FD26FA" name="InventarioAjustesPrincipal"/>
@@ -1268,6 +1348,11 @@
 	<index kind="regular" uuid="FB43134FA3914095BA8972A379776B07" type="7">
 		<field_ref uuid="D2EBEB69CAD0410C9C333A08ACBED98E" name="EmpresaID">
 			<table_ref uuid="D8CC77F429664D69909BAA252D88C428" name="ClientesFacturaPrincipal"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="FC1A94966E0C4E0A9A925B91E61095EE" type="7">
+		<field_ref uuid="85CD165878B64949BFC036817EC23D4B" name="EmpresaID">
+			<table_ref uuid="47EE9356D3914463B74224E4D4FF180E" name="PlanCuentas"/>
 		</field_ref>
 	</index>
 </base>

@@ -2,6 +2,7 @@
 //On Load de los formularios *_DETALLE de maestros
 var $m : Object
 var $a : cs.AccesosEntity
+var $par : cs.ParametrosContablesEntity
 
 Case of
 	: (Form.tabla="Usuarios")
@@ -15,6 +16,14 @@ Case of
 	: (Form.tabla="Empresas")
 		//EmpresaID es la llave primaria: solo se escribe al crear
 		OBJECT SET ENTERABLE(*; "i_EmpresaID"; Form.entidad.getStamp()=0)
+
+	: (Form.tabla="PlanCuentas")
+		$par:=ds.ParametrosContables.query("EmpresaID = :1"; Form.entidad.EmpresaID).first()
+		If ($par=Null)
+			Form.ayuda:="Defina primero la estructura en Parámetros del Sistema > Parámetros Contables."
+		Else
+			Form.ayuda:="Máscara: "+$par.Mascara+"   (la naturaleza vacía se toma del grupo)"
+		End if
 
 	: (Form.tabla="Roles")
 		//Una fila por módulo con los accesos actuales del rol

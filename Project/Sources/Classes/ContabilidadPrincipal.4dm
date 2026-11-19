@@ -11,6 +11,7 @@ exposed Function registrar($cab : Object; $lineas : Collection) : Object
 	var $a : cs.ContabilidadPrincipalEntity
 	var $d : cs.ContabilidadDetalleEntity
 	var $deb; $cre; $tDeb; $tCre : Real
+	var $msg : Text
 
 	$res:=New object("ok"; False; "mensaje"; "")
 	If (String($cab.concepto)="")
@@ -30,7 +31,7 @@ exposed Function registrar($cab : Object; $lineas : Collection) : Object
 					$res.mensaje:="Cada línea debe tener un valor positivo solo en Debe o solo en Haber."
 					return $res
 				: (String($l.cuenta)="")
-					$res.mensaje:="Hay líneas sin cuenta contable. Revise las cuentas de la empresa en Administración > Empresa."
+					$res.mensaje:="Hay líneas sin cuenta contable. Revise las cuentas en Parámetros del Sistema > Parámetros Contables."
 					return $res
 				Else
 					$validas.push(New object("cuenta"; String($l.cuenta); "debito"; $deb; "credito"; $cre; "referencia"; String($l.referencia)))
@@ -47,6 +48,18 @@ exposed Function registrar($cab : Object; $lineas : Collection) : Object
 		$res.mensaje:="El asiento no cuadra: Debe "+String($tDeb)+" / Haber "+String($tCre)+"."
 		return $res
 	End if
+
+	//Cada cuenta debe existir en el plan de cuentas de la empresa, activa y de movimiento
+	For each ($l; $validas)
+		$msg:=Cta_Validar(String($cab.empresaID); $l.cuenta)
+		If ($msg#"")
+			$res.mensaje:=$msg
+			If (String($cab.origen)#"MANUAL")
+				$res.mensaje:=$msg+" Revise Parámetros del Sistema > Parámetros Contables."
+			End if
+			return $res
+		End if
+	End for each
 
 	START TRANSACTION
 

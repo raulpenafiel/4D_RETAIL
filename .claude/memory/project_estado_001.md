@@ -8,17 +8,18 @@ Todo el código se escribió como texto y aún no se ha abierto ni compilado en 
 - Inventarios: Productos (InventarioFicha), Ajustes (con asiento), Kardex (solo consulta).
 - Clientes: Clientes, Facturación (stock + asiento, anulación con reverso).
 - Proveedores: Proveedores, Compras (costo promedio + asiento, anulación con reverso).
-- Contabilidad: asientos manuales y automáticos; Bancos (solo ficha).
+- Contabilidad: plan de cuentas (con máscara), asientos manuales y automáticos; Bancos (solo ficha).
+- Parámetros del Sistema: Parámetros Contables (pestañas Estructura de Cuentas y Cuentas Contables).
 - Web: consulta REST de productos, clientes, facturas, proveedores y compras.
 
 ## Primer paso pendiente
 1. Abrir `Project/4D_RETAIL.4DProject` en 4D y crear un archivo de datos nuevo.
 2. Compilar (Diseño > Compilador) y corregir los errores de sintaxis que aparezcan.
 3. Primer arranque: `Seg_Bootstrap` pide EmpresaID, dominio, nombre de acceso y clave del administrador. Luego entrar con `admin@dominio` y la clave. Probar también una clave errónea, un acceso sin `@` y guardar un usuario sin clave (debe rechazarse).
-4. Probar en este orden: cuentas de la empresa, producto, ajuste de entrada, compra, factura, anulaciones y kardex.
+4. Probar en este orden: parámetros contables y plan de cuentas, producto, ajuste de entrada, compra, factura, anulaciones y kardex.
 
 ## Pendiente (sin diseño)
-- Plan de cuentas, movimientos bancarios, nómina.
+- Movimientos bancarios, nómina.
 - Stock por sucursal.
 - Filtrar REST por empresa de la sesión.
 - Reportes (facturas, kardex valorizado, libro diario).

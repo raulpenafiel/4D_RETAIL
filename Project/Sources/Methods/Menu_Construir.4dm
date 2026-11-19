@@ -16,7 +16,7 @@ SET MENU ITEM METHOD($mArch; -1; "Menu_Ejecutar")
 SET MENU ITEM PARAMETER($mArch; -1; "SALIR")
 APPEND MENU ITEM($barra; "Archivo"; $mArch)
 
-For each ($grupo; ["Inventarios"; "Clientes"; "Proveedores"; "Contabilidad"; "Administración"])
+For each ($grupo; ["Inventarios"; "Clientes"; "Proveedores"; "Contabilidad"; "Administración"; "Parámetros del Sistema"])
 	$m:=Create menu
 	For each ($mod; Seg_Modulos().query("grupo = :1"; $grupo))
 		If (Seg_Permiso($mod.codigo; "ver"))

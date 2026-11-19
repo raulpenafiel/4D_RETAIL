@@ -67,20 +67,15 @@ $e.RUC:="0000000000001"
 $e.RazonSocial:="EMPRESA NUEVA"
 $e.Dominio:=$dominio
 $e.SecuencialAsiento:=0
-//Cuentas de ejemplo: ajústelas al plan de cuentas real en Administración > Empresa
-$e.CtaCaja:="1.1.01"
-$e.CtaCxC:="1.1.02"
-$e.CtaInventario:="1.1.03"
-$e.CtaIVACompras:="1.1.04"
-$e.CtaCxP:="2.1.01"
-$e.CtaIVAVentas:="2.1.02"
-$e.CtaVentas:="4.1.01"
-$e.CtaCostoVentas:="5.1.01"
-$e.CtaAjusteInventario:="5.1.02"
 $e.Activo:=True
 $msg:=$e.validar()
 If ($msg="")
 	$msg:=Val_Guardar($e)
+End if
+
+//Parámetros contables, plan de cuentas básico y cuentas de los asientos automáticos
+If ($msg="")
+	$msg:=Cta_PlanBase($id)
 End if
 
 If ($msg="")
@@ -104,7 +99,7 @@ If ($msg="")
 	$super:=New object
 	For each ($m; Seg_Modulos())
 		$todo[$m.codigo]:="VCEA"
-		If (Not(["EMPRESA"; "SUCURSAL"; "ROL"; "USUARIO"].includes($m.codigo)))
+		If (Not(["EMPRESA"; "SUCURSAL"; "ROL"; "USUARIO"; "PARAMCONTABLE"].includes($m.codigo)))
 			$super[$m.codigo]:="VCEA"
 		End if
 	End for each
@@ -140,5 +135,5 @@ End if
 
 VALIDATE TRANSACTION
 //validar() normaliza a minúsculas: se muestran los valores guardados
-ALERT("Sistema inicializado. Entre como "+$u.NombreAcceso+"@"+$e.Dominio+" y complete los datos y las cuentas contables de la empresa en Administración.")
+ALERT("Sistema inicializado. Entre como "+$u.NombreAcceso+"@"+$e.Dominio+" y complete los datos de la empresa en Administración y revise el plan de cuentas y los Parámetros Contables.")
 return True

@@ -7,6 +7,7 @@ Class extends DataClass
 exposed Function registrar($cab : Object; $lineas : Collection) : Object
 	var $res; $l; $r; $mr; $ra : Object
 	var $emp : cs.EmpresasEntity
+	var $par : cs.ParametrosContablesEntity
 	var $prov : cs.ProveedoresFichaEntity
 	var $suc : cs.SucursalesEntity
 	var $prod : cs.InventarioFichaEntity
@@ -38,6 +39,13 @@ exposed Function registrar($cab : Object; $lineas : Collection) : Object
 	End if
 	If (ds.ProveedoresFacturaPrincipal.query("ProveedoresID = :1 AND Numero = :2 AND Estado # :3"; $prov.ProveedoresID; String($cab.numero); "ANULADA").length>0)
 		$res.mensaje:="La factura "+String($cab.numero)+" de este proveedor ya está registrada."
+		return $res
+	End if
+
+	//Cuentas de los asientos automáticos (Parámetros del Sistema > Parámetros Contables)
+	$par:=$emp.parametrosContables.first()
+	If ($par=Null)
+		$res.mensaje:="Configure los Parámetros Contables de la empresa (cuentas para asientos automáticos)."
 		return $res
 	End if
 
@@ -119,13 +127,13 @@ exposed Function registrar($cab : Object; $lineas : Collection) : Object
 	$f.Total:=$f.Subtotal+$f.Impuesto
 
 	//Asiento: Inventario + IVA compras contra Caja (o CxP si es a crédito)
-	$ctaPago:=$emp.CtaCaja
+	$ctaPago:=$par.CtaCaja
 	If ($f.FormaPago="CREDITO")
-		$ctaPago:=$emp.CtaCxP
+		$ctaPago:=$par.CtaCxP
 	End if
 	$asiento:=New collection
-	$asiento.push(New object("cuenta"; $emp.CtaInventario; "debito"; $f.Subtotal; "credito"; 0; "referencia"; $f.Numero))
-	$asiento.push(New object("cuenta"; $emp.CtaIVACompras; "debito"; $f.Impuesto; "credito"; 0; "referencia"; $f.Numero))
+	$asiento.push(New object("cuenta"; $par.CtaInventario; "debito"; $f.Subtotal; "credito"; 0; "referencia"; $f.Numero))
+	$asiento.push(New object("cuenta"; $par.CtaIVACompras; "debito"; $f.Impuesto; "credito"; 0; "referencia"; $f.Numero))
 	$asiento.push(New object("cuenta"; $ctaPago; "debito"; 0; "credito"; $f.Total; "referencia"; $f.Numero))
 	$ra:=ds.ContabilidadPrincipal.registrar(New object("empresaID"; $emp.EmpresaID; "sucursalID"; $suc.SucursalesID; \
 	"fecha"; $f.Fecha; "concepto"; "Compra "+$f.Numero+" - "+$prov.Nombre; "origen"; "FACTURA_PROVEEDOR"); $asiento)
