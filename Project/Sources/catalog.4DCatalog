@@ -12,12 +12,13 @@
 		<field name="Email" uuid="BF8C43FF70BD478A90DD121035735330" type="10" limiting_length="100" id="7"/>
 		<field name="Dominio" uuid="82B43ACE875C4B5AB6BE422220A18AAC" type="10" limiting_length="100" id="8"/>
 		<field name="SecuencialAsiento" uuid="8DC3FA94D553486391D6DDD1E80BE4CC" type="4" id="9"/>
+		<field name="TipoIdentificacion" uuid="0811444207F74301A1303493A21B9307" type="10" limiting_length="2" never_null="true" id="10"/>
 		<field name="Activo" uuid="3F2D268B77054755827867DE250DB1A6" type="1" id="19"/>
 		<primary_key field_name="EmpresaID" field_uuid="A786753C4CD840169AFD043AC061A1B7"/>
 		<table_extra>
-			<editor_table_info fields_ordering="1" displayable_fields_count="8">
+			<editor_table_info displayable_fields_count="11">
 				<color red="255" green="255" blue="255" alpha="0"/>
-				<coordinates left="40" top="40" width="160" height="260"/>
+				<coordinates left="40" top="40" width="160" height="288"/>
 			</editor_table_info>
 		</table_extra>
 	</table>
@@ -34,9 +35,9 @@
 		<field name="Activo" uuid="903B2164AE6F44F78F7E9B44CAF9B8AC" type="1" id="10"/>
 		<primary_key field_name="SucursalesID" field_uuid="702B8028F7674E2693DB82FB679C5474"/>
 		<table_extra>
-			<editor_table_info fields_ordering="1" displayable_fields_count="8">
+			<editor_table_info fields_ordering="1" displayable_fields_count="10">
 				<color red="255" green="255" blue="255" alpha="0"/>
-				<coordinates left="240" top="40" width="160" height="260"/>
+				<coordinates left="240" top="40" width="160" height="271"/>
 			</editor_table_info>
 		</table_extra>
 	</table>
